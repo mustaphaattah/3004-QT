@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <iostream>
 using namespace std;
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -59,6 +60,8 @@ void MainWindow::on_downButton_clicked()
 //Power Off Button
 void MainWindow::on_powerButton_clicked()
 {
+    //for console log
+    cout << "Switching off device..."<< endl;
     exit(1);
 }
 
@@ -67,7 +70,10 @@ void MainWindow::on_powerButton_clicked()
 void MainWindow::on_selectButton_clicked()
 {
    QListWidgetItem *highlightedOption =  ui->mainMenuOptions->item(selectionIndex);
+   //for console log
+   cout << highlightedOption->text().toStdString() <<" Option selected"<< endl;
    changeMenu(highlightedOption->text());
+
 }
 
 ////Change Menu
