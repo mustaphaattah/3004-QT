@@ -1,6 +1,10 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "batterywarningdialog.h"
+#include "medwindow.h"
 using namespace std;
+
+int batteryLevel;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -59,7 +63,7 @@ void MainWindow::on_downButton_clicked()
 //Power Off Button
 void MainWindow::on_powerButton_clicked()
 {
-    exit(1);
+    exit(0);
 }
 
 
@@ -81,6 +85,15 @@ void MainWindow::changeMenu(QString selectedMenu)
     }
     else if (selectedMenu.contains(allOptions[2])){
         //CREATE INSTANCE OF MED MENU obj
+        MedWindow medMenu;
+        medMenu.setModal(true);
+        hide();
+        medMenu.exec();
+
+        //Loosing 2% of battery after coming out of med menu
+        drainBattery(2);
+
+        show();
     }
     else if (selectedMenu.contains(allOptions[3])){
         //CREATE INSTANCE OF Screening MENU obj
@@ -95,12 +108,35 @@ void MainWindow::changeMenu(QString selectedMenu)
 }
 
 //Change the battery level
-void MainWindow::setBatteryLevel(int newBatteryLevel){
-    batteryLevel = newBatteryLevel;
+void MainWindow::setBatteryLevel(int &batteryLevelRef, int newLevel){
+    batteryLevelRef = newLevel;
 }
 
 //Get the current battery level
 int MainWindow::getBatteryLevel(){
     return batteryLevel;
+}
+
+//Loosing a % of battery
+void MainWindow::drainBattery(int percent){
+
+    int newLevel = getBatteryLevel() - percent;
+    setBatteryLevel(batteryLevel,newLevel);
+    ui->batteryStatus->setValue(getBatteryLevel());
+
+    //Determining if it is time to shut off the device (battery <= than 0%)
+    checkBatteryStatus();
+
+    }
+
+void MainWindow::checkBatteryStatus(){
+    //Battery is dead, display warning and power device off
+    if(getBatteryLevel() <= 0){
+        //display dialog saing battery low
+        BatteryWarningDialog batteryWarning;
+        batteryWarning.setModal(true);
+        batteryWarning.exec();
+        on_powerButton_clicked();
+    }
 }
 

@@ -8,6 +8,8 @@ namespace Ui {
 class MainWindow;
 }
 
+extern int batteryLevel;
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -32,13 +34,16 @@ public:
     int getBatteryLevel();
 
 public:
-    void setBatteryLevel(int newBatteryLevel);
+    void setBatteryLevel(int &batteryLevelRef, int newLevel);
+
+public:
+    void checkBatteryStatus();
+
+public:
+    void drainBattery(int percent);
 
 private:
     Ui::MainWindow *ui;
-
-private:
-    int batteryLevel;
 
 private:
     QString allOptions [6] = {"PROGRAM","FREQUENCY","MED","SCREENING","CHILDREN","SETTINGS"};
@@ -47,7 +52,6 @@ private:
     int selectionIndex;
 
 };
-
 
 
 

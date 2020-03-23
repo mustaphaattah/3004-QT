@@ -25,14 +25,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        batterywarningdialog.cpp \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        medwindow.cpp
 
 HEADERS += \
-        mainwindow.h
+        batterywarningdialog.h \
+        mainwindow.h \
+        medwindow.h
 
 FORMS += \
-        mainwindow.ui
+        batterywarningdialog.ui \
+        mainwindow.ui \
+        medwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
