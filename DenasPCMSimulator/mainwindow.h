@@ -42,7 +42,6 @@ private:
 
 private:
     QString allOptions [6] = {"PROGRAM","FREQUENCY","MED","SCREENING","CHILDREN","SETTINGS"};
-    QString childrenOptions[5] = {"DISABLE", "UP TO 1 YEAR", "1-3 YEARS", "4-7 YEARS", "7-12 YEARS"};
 
 
 private:
