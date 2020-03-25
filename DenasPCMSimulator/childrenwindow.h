@@ -1,7 +1,7 @@
 #ifndef CHILDRENWINDOW_H
 #define CHILDRENWINDOW_H
 
-#include <QMainWindow>
+#include <QDialog>
 
 using namespace std; 
 
@@ -9,8 +9,7 @@ namespace Ui {
 class ChildrenWindow;
 }
 
-class ChildrenWindow : public QDialog
-{
+class ChildrenWindow: public QDialog{
     Q_OBJECT
 
 
@@ -27,6 +26,8 @@ private slots:
     void on_downButton_clicked();
 
     void on_powerButton_clicked();
+
+    void show();
 
 private:
     Ui::ChildrenWindow *ui;
