@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "childrenwindow.h"
 #include <iostream>
 using namespace std;
 
@@ -93,6 +94,12 @@ void MainWindow::changeMenu(QString selectedMenu)
     }
     else if (selectedMenu.contains(allOptions[4])){
         //CREATE INSTANCE OF Children MENU obj
+        ChildrenWindow childernWindow;
+        childernWindow.setModal(true);
+        hide();
+        childernWindow.exec();
+
+        show();
     }
     else if (selectedMenu.contains(allOptions[5])){
         //CREATE INSTANCE OF Settings MENU obj
