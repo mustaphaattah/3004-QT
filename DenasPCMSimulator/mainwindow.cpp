@@ -1,7 +1,10 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "childrenwindow.h"
+#include "settingswindow.h"
 #include <iostream>
+#include <QtGui>
+
 using namespace std;
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -63,7 +66,7 @@ void MainWindow::on_powerButton_clicked()
 {
     //for console log
     cout << "Switching off device..."<< endl;
-    exit(1);
+    exit(0);
 }
 
 
@@ -94,15 +97,22 @@ void MainWindow::changeMenu(QString selectedMenu)
     }
     else if (selectedMenu.contains(allOptions[4])){
         //CREATE INSTANCE OF Children MENU obj
-        ChildrenWindow childernWindow;
-        childernWindow.setModal(true);
-        hide();
-        childernWindow.exec();
+        //childWindow = new ChildrenWindow;
+        //childWindow->setWindowTitle("CHILDREN");
+        //childWindow->show();
 
-        show();
     }
     else if (selectedMenu.contains(allOptions[5])){
         //CREATE INSTANCE OF Settings MENU obj
+
+        SettingsWindow settingsMenu;
+        hide();
+        settingsMenu.setModal(true);
+        settingsMenu.exec();
+
+        //drain battery %1
+        show();
+
     }
     return;
 }
@@ -116,4 +126,6 @@ void MainWindow::setBatteryLevel(int newBatteryLevel){
 int MainWindow::getBatteryLevel(){
     return batteryLevel;
 }
+
+
 

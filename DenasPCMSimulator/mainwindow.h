@@ -31,11 +31,11 @@ private:
 public:
     int getBatteryLevel();
 
-public:
     void setBatteryLevel(int newBatteryLevel);
 
 private:
     Ui::MainWindow *ui;
+    //ChildrenWindow *childWindow;
 
 private:
     int batteryLevel;

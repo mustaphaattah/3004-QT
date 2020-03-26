@@ -40,7 +40,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(258, 397);
+        MainWindow->resize(260, 400);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         selectButton = new QPushButton(centralWidget);
@@ -67,7 +67,7 @@ public:
         powerButton->setGeometry(QRect(190, 330, 61, 21));
         mainMenuOptions = new QListWidget(centralWidget);
         mainMenuOptions->setObjectName(QString::fromUtf8("mainMenuOptions"));
-        mainMenuOptions->setGeometry(QRect(0, 30, 256, 221));
+        mainMenuOptions->setGeometry(QRect(0, 30, 261, 221));
         MainWindow->setCentralWidget(centralWidget);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
