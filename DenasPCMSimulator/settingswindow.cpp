@@ -1,6 +1,7 @@
 #include "settingswindow.h"
 #include "ui_settingswindow.h"
 #include "mainwindow.h"
+#include <iostream>
 
 using namespace std;
 
@@ -38,9 +39,7 @@ void SettingsWindow::on_selectButton_clicked()
 
 void SettingsWindow::menuOptionHandler( int index)
 {
-    if(index == 0){
-        //toggle child Doctor off
-     }
+    cout<< "menuOptionHandler SettingsWindow class"<< endl;
 }
 
 

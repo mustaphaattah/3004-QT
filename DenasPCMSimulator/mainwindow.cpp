@@ -85,6 +85,7 @@ void MainWindow::changeMenu(QString selectedMenu)
 {
     if (selectedMenu.contains(allOptions[0])){
         //CREATE INSTANCE OF PROGRAM MENU obj
+        cout<<"choose an program"<<endl;
     }
     else if (selectedMenu.contains(allOptions[1])){
         //CREATE INSTANCE OF Frequency MENU obj
@@ -97,18 +98,21 @@ void MainWindow::changeMenu(QString selectedMenu)
     }
     else if (selectedMenu.contains(allOptions[4])){
         //CREATE INSTANCE OF Children MENU obj
-        //childWindow = new ChildrenWindow;
-        //childWindow->setWindowTitle("CHILDREN");
-        //childWindow->show();
+        ChildrenWindow *childMenu = new ChildrenWindow;
+        childMenu->setModal(true);
+        hide();
+        childMenu->exec();
 
+        show();
     }
     else if (selectedMenu.contains(allOptions[5])){
         //CREATE INSTANCE OF Settings MENU obj
-
+        cout <<"switching to settings window"<< endl;
         SettingsWindow settingsMenu;
-        hide();
         settingsMenu.setModal(true);
+        hide();
         settingsMenu.exec();
+        settingsMenu.show();
 
         //drain battery %1
         show();

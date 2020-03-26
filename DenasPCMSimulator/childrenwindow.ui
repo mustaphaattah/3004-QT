@@ -65,7 +65,7 @@
     <string>Select</string>
    </property>
   </widget>
-  <widget class="QListWidget" name="settingsMenu">
+  <widget class="QListWidget" name="childrenMenu">
    <property name="geometry">
     <rect>
      <x>0</x>
