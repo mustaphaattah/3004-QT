@@ -18,8 +18,15 @@ public:
 private slots:
     void on_powerButton_clicked();
 
+    void fetchBatteryLife();
+
+    void updateMedTimer();
 
     void on_skinElectrode_clicked();
+
+    void on_rightButton_clicked();
+
+    void on_leftButton_clicked();
 
 private:
     Ui::MedWindow *ui;

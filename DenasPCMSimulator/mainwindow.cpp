@@ -2,7 +2,11 @@
 #include "ui_mainwindow.h"
 #include "batterywarningdialog.h"
 #include "medwindow.h"
+#include <QTimer>
+
 using namespace std;
+
+QTimer *batteryTimer = new QTimer;
 
 int batteryLevel;
 
@@ -17,6 +21,8 @@ MainWindow::MainWindow(QWidget *parent) :
     selectionIndex = 0;
     batteryLevel = 100;
     ui->batteryStatus->setValue(batteryLevel);
+    connect(batteryTimer,SIGNAL(timeout()),this,SLOT(batteryManager()));
+    batteryTimer->start(5000);
 
     //Disabling the left and right buttons. Not needed in main menu
     ui->leftButton->setEnabled(false);
@@ -30,6 +36,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //Setting the cursor to the first item and highlitghting it
     ui->mainMenuOptions->setCurrentRow(selectionIndex);
     ui->mainMenuOptions->setFocus();
+
 }
 
 MainWindow::~MainWindow()
@@ -89,10 +96,6 @@ void MainWindow::changeMenu(QString selectedMenu)
         medMenu.setModal(true);
         hide();
         medMenu.exec();
-
-        //Loosing 2% of battery after coming out of med menu
-        drainBattery(2);
-
         show();
     }
     else if (selectedMenu.contains(allOptions[3])){
@@ -138,5 +141,12 @@ void MainWindow::checkBatteryStatus(){
         batteryWarning.exec();
         on_powerButton_clicked();
     }
+
+}
+
+void MainWindow::batteryManager() {
+    //Loosing 2% of battery every 5seconds
+    drainBattery(2);
+
 }
 

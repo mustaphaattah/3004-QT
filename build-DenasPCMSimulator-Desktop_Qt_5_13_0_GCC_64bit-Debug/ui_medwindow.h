@@ -12,12 +12,12 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
-#include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QRadioButton>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QTimeEdit>
 
 QT_BEGIN_NAMESPACE
@@ -33,12 +33,11 @@ public:
     QPushButton *rightButton;
     QProgressBar *batteryStatus;
     QPushButton *upButton;
-    QPushButton *hintButton;
-    QLCDNumber *intensityLevel;
     QRadioButton *skinElectrode;
     QLabel *intensityLevelLabel;
     QLabel *medTimerLabel;
     QTimeEdit *medTimer;
+    QTextEdit *intensityIndicator;
 
     void setupUi(QDialog *MedWindow)
     {
@@ -72,18 +71,12 @@ public:
         upButton->setObjectName(QString::fromUtf8("upButton"));
         upButton->setGeometry(QRect(40, 260, 31, 25));
         upButton->setCheckable(false);
-        hintButton = new QPushButton(MedWindow);
-        hintButton->setObjectName(QString::fromUtf8("hintButton"));
-        hintButton->setGeometry(QRect(10, 10, 71, 16));
-        intensityLevel = new QLCDNumber(MedWindow);
-        intensityLevel->setObjectName(QString::fromUtf8("intensityLevel"));
-        intensityLevel->setGeometry(QRect(30, 80, 181, 81));
         skinElectrode = new QRadioButton(MedWindow);
         skinElectrode->setObjectName(QString::fromUtf8("skinElectrode"));
         skinElectrode->setGeometry(QRect(140, 290, 106, 23));
         intensityLevelLabel = new QLabel(MedWindow);
         intensityLevelLabel->setObjectName(QString::fromUtf8("intensityLevelLabel"));
-        intensityLevelLabel->setGeometry(QRect(70, 60, 101, 17));
+        intensityLevelLabel->setGeometry(QRect(80, 80, 111, 31));
         medTimerLabel = new QLabel(MedWindow);
         medTimerLabel->setObjectName(QString::fromUtf8("medTimerLabel"));
         medTimerLabel->setGeometry(QRect(20, 200, 231, 20));
@@ -92,6 +85,10 @@ public:
         medTimer->setGeometry(QRect(60, 220, 118, 26));
         medTimer->setFrame(true);
         medTimer->setKeyboardTracking(true);
+        medTimer->setTime(QTime(1, 0, 0));
+        intensityIndicator = new QTextEdit(MedWindow);
+        intensityIndicator->setObjectName(QString::fromUtf8("intensityIndicator"));
+        intensityIndicator->setGeometry(QRect(100, 120, 41, 31));
 
         retranslateUi(MedWindow);
 
@@ -107,10 +104,14 @@ public:
         powerButton->setText(QCoreApplication::translate("MedWindow", "Power", nullptr));
         rightButton->setText(QCoreApplication::translate("MedWindow", "\342\206\222", nullptr));
         upButton->setText(QCoreApplication::translate("MedWindow", "\342\206\221", nullptr));
-        hintButton->setText(QCoreApplication::translate("MedWindow", "Help ?", nullptr));
         skinElectrode->setText(QCoreApplication::translate("MedWindow", "Skin On/Off", nullptr));
         intensityLevelLabel->setText(QCoreApplication::translate("MedWindow", "Intensity Level", nullptr));
         medTimerLabel->setText(QCoreApplication::translate("MedWindow", "MED timer (only operates on skin)", nullptr));
+        intensityIndicator->setHtml(QCoreApplication::translate("MedWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
     } // retranslateUi
 
 };

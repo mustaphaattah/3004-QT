@@ -12,3 +12,8 @@ BatteryWarningDialog::~BatteryWarningDialog()
 {
     delete ui;
 }
+
+void BatteryWarningDialog::on_okayButton_clicked()
+{
+    exit(0);
+}

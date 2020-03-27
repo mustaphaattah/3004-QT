@@ -15,6 +15,9 @@ public:
     explicit BatteryWarningDialog(QWidget *parent = nullptr);
     ~BatteryWarningDialog();
 
+private slots:
+    void on_okayButton_clicked();
+
 private:
     Ui::BatteryWarningDialog *ui;
 };

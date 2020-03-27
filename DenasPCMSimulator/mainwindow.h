@@ -27,6 +27,8 @@ private slots:
 
     void on_selectButton_clicked();
 
+    void batteryManager();
+
 private:
     void changeMenu(QString selectedMenu);
 

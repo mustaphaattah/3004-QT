@@ -120,29 +120,6 @@
     <bool>false</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="hintButton">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>71</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Help ?</string>
-   </property>
-  </widget>
-  <widget class="QLCDNumber" name="intensityLevel">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>80</y>
-     <width>181</width>
-     <height>81</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QRadioButton" name="skinElectrode">
    <property name="geometry">
     <rect>
@@ -159,10 +136,10 @@
   <widget class="QLabel" name="intensityLevelLabel">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>60</y>
-     <width>101</width>
-     <height>17</height>
+     <x>80</x>
+     <y>80</y>
+     <width>111</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
@@ -196,6 +173,30 @@
    </property>
    <property name="keyboardTracking">
     <bool>true</bool>
+   </property>
+   <property name="time">
+    <time>
+     <hour>1</hour>
+     <minute>0</minute>
+     <second>0</second>
+    </time>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="intensityIndicator">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>120</y>
+     <width>41</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="html">
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
  </widget>
