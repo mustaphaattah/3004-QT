@@ -28,17 +28,20 @@ SOURCES += \
         batterywarningdialog.cpp \
         main.cpp \
         mainwindow.cpp \
-        medwindow.cpp
+        medwindow.cpp \
+        screeningwindow.cpp
 
 HEADERS += \
         batterywarningdialog.h \
         mainwindow.h \
-        medwindow.h
+        medwindow.h \
+        screeningwindow.h
 
 FORMS += \
         batterywarningdialog.ui \
         mainwindow.ui \
-        medwindow.ui
+        medwindow.ui \
+        screeningwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "batterywarningdialog.h"
 #include "medwindow.h"
+#include "screeningwindow.h"
 #include <QTimer>
 
 using namespace std;
@@ -100,6 +101,11 @@ void MainWindow::changeMenu(QString selectedMenu)
     }
     else if (selectedMenu.contains(allOptions[3])){
         //CREATE INSTANCE OF Screening MENU obj
+        ScreeningWindow screeningMenu;
+        screeningMenu.setModal(true);
+        hide();
+        screeningMenu.exec();
+        show();
     }
     else if (selectedMenu.contains(allOptions[4])){
         //CREATE INSTANCE OF Children MENU obj
@@ -147,6 +153,6 @@ void MainWindow::checkBatteryStatus(){
 void MainWindow::batteryManager() {
     //Loosing 2% of battery every 5seconds
     drainBattery(2);
-
+    checkBatteryStatus();
 }
 
