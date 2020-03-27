@@ -76,6 +76,7 @@ void MedWindow::on_leftButton_clicked()
 
     if (intensity >= 0) {
         ui->intensityIndicator->setText(QString::number(intensity));
+        intensity = 0;
     } else {
     ui->intensityIndicator->setText(QString::number(0));
     }
