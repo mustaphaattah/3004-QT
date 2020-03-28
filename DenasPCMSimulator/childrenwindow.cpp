@@ -3,7 +3,7 @@
 
 bool childrenDoctor = false;
 
-ChildrenWindow::ChildrenWindow(QWidget *parent) :
+ChildrenWindow::ChildrenWindow(QDialog *parent) :
     QDialog(parent),
     ui(new Ui::ChildrenWindow)
 {

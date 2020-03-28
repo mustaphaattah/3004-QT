@@ -98,10 +98,10 @@ void MainWindow::changeMenu(QString selectedMenu)
     }
     else if (selectedMenu.contains(allOptions[4])){
         //CREATE INSTANCE OF Children MENU obj
-        ChildrenWindow *childMenu = new ChildrenWindow;
-        childMenu->setModal(true);
+        ChildrenWindow childMenu;
+        childMenu.setModal(true);
         hide();
-        childMenu->exec();
+        childMenu.exec();
 
         show();
     }

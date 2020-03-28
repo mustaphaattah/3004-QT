@@ -5,7 +5,7 @@
 
 using namespace std;
 
-SettingsWindow::SettingsWindow(QWidget *parent) :
+SettingsWindow::SettingsWindow(QDialog *parent) :
     QDialog(parent),
     ui(new Ui::SettingsWindow)
 {

@@ -14,7 +14,7 @@ class ChildrenWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit ChildrenWindow(QWidget *parent = nullptr);
+    explicit ChildrenWindow(QDialog *parent = nullptr);
     ~ChildrenWindow();
     static void setChildrenDoctor(bool status);
     static bool getChildrenDoctor();

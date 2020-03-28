@@ -12,7 +12,7 @@ class SettingsWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit SettingsWindow(QWidget *parent = nullptr);
+    explicit SettingsWindow(QDialog *parent = nullptr);
     ~SettingsWindow();
 
 private slots:
