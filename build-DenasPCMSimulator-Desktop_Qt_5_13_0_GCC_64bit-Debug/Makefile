@@ -53,22 +53,30 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../DenasPCMSimulator/batterywarningdialog.cpp \
+		../DenasPCMSimulator/childrenwindow.cpp \
 		../DenasPCMSimulator/main.cpp \
 		../DenasPCMSimulator/mainwindow.cpp \
 		../DenasPCMSimulator/medwindow.cpp \
-		../DenasPCMSimulator/screeningwindow.cpp moc_batterywarningdialog.cpp \
+		../DenasPCMSimulator/screeningwindow.cpp \
+		../DenasPCMSimulator/settingswindow.cpp moc_batterywarningdialog.cpp \
+		moc_childrenwindow.cpp \
 		moc_mainwindow.cpp \
 		moc_medwindow.cpp \
-		moc_screeningwindow.cpp
+		moc_screeningwindow.cpp \
+		moc_settingswindow.cpp
 OBJECTS       = batterywarningdialog.o \
+		childrenwindow.o \
 		main.o \
 		mainwindow.o \
 		medwindow.o \
 		screeningwindow.o \
+		settingswindow.o \
 		moc_batterywarningdialog.o \
+		moc_childrenwindow.o \
 		moc_mainwindow.o \
 		moc_medwindow.o \
-		moc_screeningwindow.o
+		moc_screeningwindow.o \
+		moc_settingswindow.o
 DIST          = /home/student/Qt/5.13.0/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/student/Qt/5.13.0/gcc_64/mkspecs/common/unix.conf \
 		/home/student/Qt/5.13.0/gcc_64/mkspecs/common/linux.conf \
@@ -261,13 +269,17 @@ DIST          = /home/student/Qt/5.13.0/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/student/Qt/5.13.0/gcc_64/mkspecs/features/yacc.prf \
 		/home/student/Qt/5.13.0/gcc_64/mkspecs/features/lex.prf \
 		../DenasPCMSimulator/DenasPCMSimulator.pro ../DenasPCMSimulator/batterywarningdialog.h \
+		../DenasPCMSimulator/childrenwindow.h \
 		../DenasPCMSimulator/mainwindow.h \
 		../DenasPCMSimulator/medwindow.h \
-		../DenasPCMSimulator/screeningwindow.h ../DenasPCMSimulator/batterywarningdialog.cpp \
+		../DenasPCMSimulator/screeningwindow.h \
+		../DenasPCMSimulator/settingswindow.h ../DenasPCMSimulator/batterywarningdialog.cpp \
+		../DenasPCMSimulator/childrenwindow.cpp \
 		../DenasPCMSimulator/main.cpp \
 		../DenasPCMSimulator/mainwindow.cpp \
 		../DenasPCMSimulator/medwindow.cpp \
-		../DenasPCMSimulator/screeningwindow.cpp
+		../DenasPCMSimulator/screeningwindow.cpp \
+		../DenasPCMSimulator/settingswindow.cpp
 QMAKE_TARGET  = DenasPCMSimulator
 DESTDIR       = 
 TARGET        = DenasPCMSimulator
@@ -276,7 +288,7 @@ TARGET        = DenasPCMSimulator
 first: all
 ####### Build rules
 
-DenasPCMSimulator: ui_batterywarningdialog.h ui_mainwindow.h ui_medwindow.h ui_screeningwindow.h $(OBJECTS)  
+DenasPCMSimulator: ui_batterywarningdialog.h ui_childrenwindow.h ui_mainwindow.h ui_medwindow.h ui_screeningwindow.h ui_settingswindow.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../DenasPCMSimulator/DenasPCMSimulator.pro /home/student/Qt/5.13.0/gcc_64/mkspecs/linux-g++/qmake.conf /home/student/Qt/5.13.0/gcc_64/mkspecs/features/spec_pre.prf \
@@ -679,9 +691,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /home/student/Qt/5.13.0/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../DenasPCMSimulator/batterywarningdialog.h ../DenasPCMSimulator/mainwindow.h ../DenasPCMSimulator/medwindow.h ../DenasPCMSimulator/screeningwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../DenasPCMSimulator/batterywarningdialog.cpp ../DenasPCMSimulator/main.cpp ../DenasPCMSimulator/mainwindow.cpp ../DenasPCMSimulator/medwindow.cpp ../DenasPCMSimulator/screeningwindow.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../DenasPCMSimulator/batterywarningdialog.ui ../DenasPCMSimulator/mainwindow.ui ../DenasPCMSimulator/medwindow.ui ../DenasPCMSimulator/screeningwindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../DenasPCMSimulator/batterywarningdialog.h ../DenasPCMSimulator/childrenwindow.h ../DenasPCMSimulator/mainwindow.h ../DenasPCMSimulator/medwindow.h ../DenasPCMSimulator/screeningwindow.h ../DenasPCMSimulator/settingswindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../DenasPCMSimulator/batterywarningdialog.cpp ../DenasPCMSimulator/childrenwindow.cpp ../DenasPCMSimulator/main.cpp ../DenasPCMSimulator/mainwindow.cpp ../DenasPCMSimulator/medwindow.cpp ../DenasPCMSimulator/screeningwindow.cpp ../DenasPCMSimulator/settingswindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../DenasPCMSimulator/batterywarningdialog.ui ../DenasPCMSimulator/childrenwindow.ui ../DenasPCMSimulator/mainwindow.ui ../DenasPCMSimulator/medwindow.ui ../DenasPCMSimulator/screeningwindow.ui ../DenasPCMSimulator/settingswindow.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -713,9 +725,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /home/student/Qt/5.13.0/gcc_64/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h /home/student/Qt/5.13.0/gcc_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_batterywarningdialog.cpp moc_mainwindow.cpp moc_medwindow.cpp moc_screeningwindow.cpp
+compiler_moc_header_make_all: moc_batterywarningdialog.cpp moc_childrenwindow.cpp moc_mainwindow.cpp moc_medwindow.cpp moc_screeningwindow.cpp moc_settingswindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_batterywarningdialog.cpp moc_mainwindow.cpp moc_medwindow.cpp moc_screeningwindow.cpp
+	-$(DEL_FILE) moc_batterywarningdialog.cpp moc_childrenwindow.cpp moc_mainwindow.cpp moc_medwindow.cpp moc_screeningwindow.cpp moc_settingswindow.cpp
 moc_batterywarningdialog.cpp: ../DenasPCMSimulator/batterywarningdialog.h \
 		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/QDialog \
 		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qdialog.h \
@@ -824,6 +836,115 @@ moc_batterywarningdialog.cpp: ../DenasPCMSimulator/batterywarningdialog.h \
 		moc_predefs.h \
 		/home/student/Qt/5.13.0/gcc_64/bin/moc
 	/home/student/Qt/5.13.0/gcc_64/bin/moc $(DEFINES) --include /media/sf_DenasPCMSimulator/3004-QT/build-DenasPCMSimulator-Desktop_Qt_5_13_0_GCC_64bit-Debug/moc_predefs.h -I/home/student/Qt/5.13.0/gcc_64/mkspecs/linux-g++ -I/media/sf_DenasPCMSimulator/3004-QT/DenasPCMSimulator -I/home/student/Qt/5.13.0/gcc_64/include -I/home/student/Qt/5.13.0/gcc_64/include/QtWidgets -I/home/student/Qt/5.13.0/gcc_64/include/QtGui -I/home/student/Qt/5.13.0/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../DenasPCMSimulator/batterywarningdialog.h -o moc_batterywarningdialog.cpp
+
+moc_childrenwindow.cpp: ../DenasPCMSimulator/childrenwindow.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/QDialog \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qdialog.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qglobal.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qconfig.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qtcore-config.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qsysinfo.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qlogging.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qflags.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qatomic.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qmutex.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qnumeric.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qversiontagging.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qtgui-config.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qwidget.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qnamespace.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qobject.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qstring.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qchar.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qbytearray.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qrefcount.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qarraydata.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qstringliteral.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qstringview.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qlist.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qalgorithms.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qiterator.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qpair.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qvector.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qpoint.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qstringlist.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qregexp.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qcoreevent.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qmetatype.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qobject_impl.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qmargins.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qrect.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qsize.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qpalette.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qcolor.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qrgb.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qrgba64.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qbrush.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qmatrix.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qpolygon.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qregion.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qdatastream.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qiodevice.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qline.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qtransform.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qpainterpath.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qimage.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qpixelformat.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qpixmap.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qshareddata.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qhash.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qfont.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qfontinfo.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qcursor.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qkeysequence.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qevent.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qvariant.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qmap.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qdebug.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qtextstream.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qlocale.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qset.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qurl.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qurlquery.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qfile.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qfiledevice.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qvector2d.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qtouchdevice.h \
+		moc_predefs.h \
+		/home/student/Qt/5.13.0/gcc_64/bin/moc
+	/home/student/Qt/5.13.0/gcc_64/bin/moc $(DEFINES) --include /media/sf_DenasPCMSimulator/3004-QT/build-DenasPCMSimulator-Desktop_Qt_5_13_0_GCC_64bit-Debug/moc_predefs.h -I/home/student/Qt/5.13.0/gcc_64/mkspecs/linux-g++ -I/media/sf_DenasPCMSimulator/3004-QT/DenasPCMSimulator -I/home/student/Qt/5.13.0/gcc_64/include -I/home/student/Qt/5.13.0/gcc_64/include/QtWidgets -I/home/student/Qt/5.13.0/gcc_64/include/QtGui -I/home/student/Qt/5.13.0/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../DenasPCMSimulator/childrenwindow.h -o moc_childrenwindow.cpp
 
 moc_mainwindow.cpp: ../DenasPCMSimulator/mainwindow.h \
 		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/QMainWindow \
@@ -1154,16 +1275,129 @@ moc_screeningwindow.cpp: ../DenasPCMSimulator/screeningwindow.h \
 		/home/student/Qt/5.13.0/gcc_64/bin/moc
 	/home/student/Qt/5.13.0/gcc_64/bin/moc $(DEFINES) --include /media/sf_DenasPCMSimulator/3004-QT/build-DenasPCMSimulator-Desktop_Qt_5_13_0_GCC_64bit-Debug/moc_predefs.h -I/home/student/Qt/5.13.0/gcc_64/mkspecs/linux-g++ -I/media/sf_DenasPCMSimulator/3004-QT/DenasPCMSimulator -I/home/student/Qt/5.13.0/gcc_64/include -I/home/student/Qt/5.13.0/gcc_64/include/QtWidgets -I/home/student/Qt/5.13.0/gcc_64/include/QtGui -I/home/student/Qt/5.13.0/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../DenasPCMSimulator/screeningwindow.h -o moc_screeningwindow.cpp
 
+moc_settingswindow.cpp: ../DenasPCMSimulator/settingswindow.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/QDialog \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qdialog.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qglobal.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qconfig.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qtcore-config.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qsysinfo.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qlogging.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qflags.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qatomic.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qmutex.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qnumeric.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qversiontagging.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qtgui-config.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qwidget.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qnamespace.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qobject.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qstring.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qchar.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qbytearray.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qrefcount.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qarraydata.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qstringliteral.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qstringview.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qlist.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qalgorithms.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qiterator.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qpair.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qvector.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qpoint.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qstringlist.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qregexp.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qcoreevent.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qmetatype.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qobject_impl.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qmargins.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qrect.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qsize.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qpalette.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qcolor.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qrgb.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qrgba64.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qbrush.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qmatrix.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qpolygon.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qregion.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qdatastream.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qiodevice.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qline.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qtransform.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qpainterpath.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qimage.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qpixelformat.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qpixmap.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qshareddata.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qhash.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qfont.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qfontinfo.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qcursor.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qkeysequence.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qevent.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qvariant.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qmap.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qdebug.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qtextstream.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qlocale.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qset.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qurl.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qurlquery.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qfile.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qfiledevice.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qvector2d.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qtouchdevice.h \
+		moc_predefs.h \
+		/home/student/Qt/5.13.0/gcc_64/bin/moc
+	/home/student/Qt/5.13.0/gcc_64/bin/moc $(DEFINES) --include /media/sf_DenasPCMSimulator/3004-QT/build-DenasPCMSimulator-Desktop_Qt_5_13_0_GCC_64bit-Debug/moc_predefs.h -I/home/student/Qt/5.13.0/gcc_64/mkspecs/linux-g++ -I/media/sf_DenasPCMSimulator/3004-QT/DenasPCMSimulator -I/home/student/Qt/5.13.0/gcc_64/include -I/home/student/Qt/5.13.0/gcc_64/include/QtWidgets -I/home/student/Qt/5.13.0/gcc_64/include/QtGui -I/home/student/Qt/5.13.0/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../DenasPCMSimulator/settingswindow.h -o moc_settingswindow.cpp
+
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_batterywarningdialog.h ui_mainwindow.h ui_medwindow.h ui_screeningwindow.h
+compiler_uic_make_all: ui_batterywarningdialog.h ui_childrenwindow.h ui_mainwindow.h ui_medwindow.h ui_screeningwindow.h ui_settingswindow.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_batterywarningdialog.h ui_mainwindow.h ui_medwindow.h ui_screeningwindow.h
+	-$(DEL_FILE) ui_batterywarningdialog.h ui_childrenwindow.h ui_mainwindow.h ui_medwindow.h ui_screeningwindow.h ui_settingswindow.h
 ui_batterywarningdialog.h: ../DenasPCMSimulator/batterywarningdialog.ui \
 		/home/student/Qt/5.13.0/gcc_64/bin/uic
 	/home/student/Qt/5.13.0/gcc_64/bin/uic ../DenasPCMSimulator/batterywarningdialog.ui -o ui_batterywarningdialog.h
+
+ui_childrenwindow.h: ../DenasPCMSimulator/childrenwindow.ui \
+		/home/student/Qt/5.13.0/gcc_64/bin/uic
+	/home/student/Qt/5.13.0/gcc_64/bin/uic ../DenasPCMSimulator/childrenwindow.ui -o ui_childrenwindow.h
 
 ui_mainwindow.h: ../DenasPCMSimulator/mainwindow.ui \
 		/home/student/Qt/5.13.0/gcc_64/bin/uic
@@ -1176,6 +1410,10 @@ ui_medwindow.h: ../DenasPCMSimulator/medwindow.ui \
 ui_screeningwindow.h: ../DenasPCMSimulator/screeningwindow.ui \
 		/home/student/Qt/5.13.0/gcc_64/bin/uic
 	/home/student/Qt/5.13.0/gcc_64/bin/uic ../DenasPCMSimulator/screeningwindow.ui -o ui_screeningwindow.h
+
+ui_settingswindow.h: ../DenasPCMSimulator/settingswindow.ui \
+		/home/student/Qt/5.13.0/gcc_64/bin/uic
+	/home/student/Qt/5.13.0/gcc_64/bin/uic ../DenasPCMSimulator/settingswindow.ui -o ui_settingswindow.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -1315,6 +1553,114 @@ batterywarningdialog.o: ../DenasPCMSimulator/batterywarningdialog.cpp ../DenasPC
 		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qtextformat.h \
 		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qpen.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o batterywarningdialog.o ../DenasPCMSimulator/batterywarningdialog.cpp
+
+childrenwindow.o: ../DenasPCMSimulator/childrenwindow.cpp ../DenasPCMSimulator/childrenwindow.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/QDialog \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qdialog.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qglobal.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qconfig.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qtcore-config.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qsysinfo.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qlogging.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qflags.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qatomic.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qmutex.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qnumeric.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qversiontagging.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qtgui-config.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qwidget.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qnamespace.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qobject.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qstring.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qchar.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qbytearray.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qrefcount.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qarraydata.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qstringliteral.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qstringview.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qlist.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qalgorithms.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qiterator.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qpair.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qvector.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qpoint.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qstringlist.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qregexp.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qcoreevent.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qmetatype.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qobject_impl.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qmargins.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qrect.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qsize.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qpalette.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qcolor.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qrgb.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qrgba64.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qbrush.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qmatrix.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qpolygon.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qregion.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qdatastream.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qiodevice.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qline.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qtransform.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qpainterpath.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qimage.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qpixelformat.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qpixmap.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qshareddata.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qhash.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qfont.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qfontinfo.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qcursor.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qkeysequence.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qevent.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qvariant.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qmap.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qdebug.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qtextstream.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qlocale.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qset.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qurl.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qurlquery.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qfile.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qfiledevice.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qvector2d.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qtouchdevice.h \
+		ui_childrenwindow.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o childrenwindow.o ../DenasPCMSimulator/childrenwindow.cpp
 
 main.o: ../DenasPCMSimulator/main.cpp ../DenasPCMSimulator/mainwindow.h \
 		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/QMainWindow \
@@ -1583,6 +1929,8 @@ mainwindow.o: ../DenasPCMSimulator/mainwindow.cpp ../DenasPCMSimulator/mainwindo
 		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qdialog.h \
 		../DenasPCMSimulator/medwindow.h \
 		../DenasPCMSimulator/screeningwindow.h \
+		../DenasPCMSimulator/settingswindow.h \
+		../DenasPCMSimulator/childrenwindow.h \
 		/home/student/Qt/5.13.0/gcc_64/include/QtCore/QTimer \
 		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qtimer.h \
 		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qbasictimer.h
@@ -1855,18 +2203,182 @@ screeningwindow.o: ../DenasPCMSimulator/screeningwindow.cpp ../DenasPCMSimulator
 		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qvector2d.h \
 		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qtouchdevice.h \
 		ui_screeningwindow.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/QVariant \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/QApplication \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qapplication.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qcoreapplication.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qeventloop.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qguiapplication.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qinputmethod.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/QLabel \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qlabel.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qframe.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/QListWidget \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qlistwidget.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qlistview.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qstyleoption.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qvalidator.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qregularexpression.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qicon.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qslider.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qstyle.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qtabbar.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/QProgressBar \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qprogressbar.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/QPushButton \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/QRadioButton \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qradiobutton.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/QTextEdit \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qtextedit.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qtextdocument.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qtextoption.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qtextcursor.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qtextformat.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qpen.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/QTimeEdit \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qdatetimeedit.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qdatetime.h \
 		../DenasPCMSimulator/mainwindow.h \
 		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/QMainWindow \
 		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qmainwindow.h \
-		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qtabwidget.h \
-		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qicon.h \
 		/home/student/Qt/5.13.0/gcc_64/include/QtCore/QTimer \
 		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qtimer.h \
 		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qbasictimer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o screeningwindow.o ../DenasPCMSimulator/screeningwindow.cpp
 
+settingswindow.o: ../DenasPCMSimulator/settingswindow.cpp ../DenasPCMSimulator/settingswindow.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/QDialog \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qdialog.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qglobal.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qconfig.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qtcore-config.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qsysinfo.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qlogging.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qflags.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qatomic.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qmutex.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qnumeric.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qversiontagging.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qtgui-config.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qwidget.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qnamespace.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qobject.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qstring.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qchar.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qbytearray.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qrefcount.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qarraydata.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qstringliteral.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qstringview.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qlist.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qalgorithms.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qiterator.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qpair.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qvector.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qpoint.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qstringlist.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qregexp.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qcoreevent.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qmetatype.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qobject_impl.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qmargins.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qrect.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qsize.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qpalette.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qcolor.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qrgb.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qrgba64.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qbrush.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qmatrix.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qpolygon.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qregion.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qdatastream.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qiodevice.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qline.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qtransform.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qpainterpath.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qimage.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qpixelformat.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qpixmap.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qshareddata.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qhash.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qfont.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qfontinfo.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qcursor.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qkeysequence.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qevent.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qvariant.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qmap.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qdebug.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qtextstream.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qlocale.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qset.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qurl.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qurlquery.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qfile.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qfiledevice.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qvector2d.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qtouchdevice.h \
+		ui_settingswindow.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/QTimer \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qtimer.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtCore/qbasictimer.h \
+		../DenasPCMSimulator/mainwindow.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/QMainWindow \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qmainwindow.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtWidgets/qtabwidget.h \
+		/home/student/Qt/5.13.0/gcc_64/include/QtGui/qicon.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o settingswindow.o ../DenasPCMSimulator/settingswindow.cpp
+
 moc_batterywarningdialog.o: moc_batterywarningdialog.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_batterywarningdialog.o moc_batterywarningdialog.cpp
+
+moc_childrenwindow.o: moc_childrenwindow.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_childrenwindow.o moc_childrenwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
@@ -1876,6 +2388,9 @@ moc_medwindow.o: moc_medwindow.cpp
 
 moc_screeningwindow.o: moc_screeningwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_screeningwindow.o moc_screeningwindow.cpp
+
+moc_settingswindow.o: moc_settingswindow.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_settingswindow.o moc_settingswindow.cpp
 
 ####### Install
 

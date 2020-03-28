@@ -3,6 +3,8 @@
 #include "batterywarningdialog.h"
 #include "medwindow.h"
 #include "screeningwindow.h"
+#include "settingswindow.h"
+#include "childrenwindow.h"
 #include <QTimer>
 
 using namespace std;
@@ -109,9 +111,19 @@ void MainWindow::changeMenu(QString selectedMenu)
     }
     else if (selectedMenu.contains(allOptions[4])){
         //CREATE INSTANCE OF Children MENU obj
+        ChildrenWindow childrenWindow;
+        childrenWindow.setModal(true);
+        hide();
+        childrenWindow.exec();
+        show();
     }
     else if (selectedMenu.contains(allOptions[5])){
         //CREATE INSTANCE OF Settings MENU obj
+        settingsWindow settingsMenu;
+        settingsMenu.setModal(true);
+        hide();
+        settingsMenu.exec();
+        show();
     }
     return;
 }

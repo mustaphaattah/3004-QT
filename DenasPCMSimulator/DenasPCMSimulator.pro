@@ -26,22 +26,28 @@ CONFIG += c++11
 
 SOURCES += \
         batterywarningdialog.cpp \
+        childrenwindow.cpp \
         main.cpp \
         mainwindow.cpp \
         medwindow.cpp \
-        screeningwindow.cpp
+        screeningwindow.cpp \
+        settingswindow.cpp
 
 HEADERS += \
         batterywarningdialog.h \
+        childrenwindow.h \
         mainwindow.h \
         medwindow.h \
-        screeningwindow.h
+        screeningwindow.h \
+        settingswindow.h
 
 FORMS += \
         batterywarningdialog.ui \
+        childrenwindow.ui \
         mainwindow.ui \
         medwindow.ui \
-        screeningwindow.ui
+        screeningwindow.ui \
+        settingswindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
