@@ -21,6 +21,7 @@ MedWindow::MedWindow(QDialog *parent) :
     ui->upButton->setEnabled(false);
     ui->downButton->setEnabled(false);
     ui->skinElectrode->setChecked(false);
+    ui->selectButton->setText("Back");
     ui->medTimer->setTime(medTreatmentTime);
     intensity = 0;
     ui->intensityIndicator->setFontWeight(30);
@@ -80,4 +81,11 @@ void MedWindow::on_leftButton_clicked()
     } else {
     ui->intensityIndicator->setText(QString::number(0));
     }
+}
+
+
+
+void MedWindow::on_selectButton_clicked()
+{
+    this->close();
 }

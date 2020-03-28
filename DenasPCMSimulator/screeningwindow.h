@@ -24,6 +24,8 @@ private slots:
 
     void updateScreenTimer();
 
+    void on_selectButton_clicked();
+
 private:
     Ui::ScreeningWindow *ui;
 };

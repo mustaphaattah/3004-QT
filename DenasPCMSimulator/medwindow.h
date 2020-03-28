@@ -28,6 +28,8 @@ private slots:
 
     void on_leftButton_clicked();
 
+    void on_selectButton_clicked();
+
 private:
     Ui::MedWindow *ui;
 };

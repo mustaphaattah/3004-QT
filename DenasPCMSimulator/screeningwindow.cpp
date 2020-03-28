@@ -26,6 +26,7 @@ ScreeningWindow::ScreeningWindow(QWidget *parent) :
     ui->downButton->setEnabled(false);
     ui->rightButton->setEnabled(false);
     ui->leftButton->setEnabled(false);
+    ui->selectButton->setText("Back");
     counter = 0;
 
 }
@@ -65,3 +66,8 @@ void ScreeningWindow::on_powerButton_clicked()
     exit(0);
 }
 
+
+void ScreeningWindow::on_selectButton_clicked()
+{
+    this->close();
+}
