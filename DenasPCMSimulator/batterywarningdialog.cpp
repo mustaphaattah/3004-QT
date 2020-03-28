@@ -6,6 +6,7 @@ BatteryWarningDialog::BatteryWarningDialog(QWidget *parent) :
     ui(new Ui::BatteryWarningDialog)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Low Battery!!!");
 }
 
 BatteryWarningDialog::~BatteryWarningDialog()

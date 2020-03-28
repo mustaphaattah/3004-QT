@@ -5,6 +5,8 @@
 #include "screeningwindow.h"
 #include "settingswindow.h"
 #include "childrenwindow.h"
+#include "frequencywindow.h"
+#include "programswindow.h"
 #include <QTimer>
 
 using namespace std;
@@ -89,17 +91,27 @@ void MainWindow::changeMenu(QString selectedMenu)
 {
     if (selectedMenu.contains(allOptions[0])){
         //CREATE INSTANCE OF PROGRAM MENU obj
+        ProgramsWindow progWindow;
+        progWindow.setModal(true);
+        hide();
+        progWindow.exec();
+        show();
     }
     else if (selectedMenu.contains(allOptions[1])){
         //CREATE INSTANCE OF Frequency MENU obj
+        FrequencyWindow freqWindow;
+        freqWindow.setModal(true);
+        hide();
+        freqWindow.exec();
+        show();
     }
     else if (selectedMenu.contains(allOptions[2])){
         //CREATE INSTANCE OF MED MENU obj
-//        MedWindow medMenu;
-//        medMenu.setModal(true);
-//        hide();
-//        medMenu.exec();
-//        show();
+        MedWindow medMenu;
+        medMenu.setModal(true);
+        hide();
+        medMenu.exec();
+        show();
     }
     else if (selectedMenu.contains(allOptions[3])){
         //CREATE INSTANCE OF Screening MENU obj

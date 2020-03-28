@@ -27,25 +27,31 @@ CONFIG += c++11
 SOURCES += \
         batterywarningdialog.cpp \
         childrenwindow.cpp \
+        frequencywindow.cpp \
         main.cpp \
         mainwindow.cpp \
         medwindow.cpp \
+        programswindow.cpp \
         screeningwindow.cpp \
         settingswindow.cpp
 
 HEADERS += \
         batterywarningdialog.h \
         childrenwindow.h \
+        frequencywindow.h \
         mainwindow.h \
         medwindow.h \
+        programswindow.h \
         screeningwindow.h \
         settingswindow.h
 
 FORMS += \
         batterywarningdialog.ui \
         childrenwindow.ui \
+        frequencywindow.ui \
         mainwindow.ui \
         medwindow.ui \
+        programswindow.ui \
         screeningwindow.ui \
         settingswindow.ui
 
