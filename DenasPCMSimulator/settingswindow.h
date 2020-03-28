@@ -4,22 +4,28 @@
 #include <QDialog>
 
 namespace Ui {
-class settingsWindow;
+class SettingsWindow;
 }
 
-class settingsWindow : public QDialog
+class SettingsWindow : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit settingsWindow(QDialog *parent = nullptr);
-    ~settingsWindow();
+    explicit SettingsWindow(QDialog *parent = nullptr);
+    ~SettingsWindow();
 
 private slots:
     void fetchBatteryLife();
 
+    void on_upButton_clicked();
+
+    void on_downButton_clicked();
+
 private:
-    Ui::settingsWindow *ui;
+    Ui::SettingsWindow *ui;
+    QString settingsOptions[8] = {"SOUND", "BRIGHTNESS", "ECONOMY", "RECORDING", "CLOCK", "ALARM CLOCK", "LANGUAGE", "COLOUR"};
+    int selectionIndex;
 };
 
 #endif // SETTINGSWINDOW_H

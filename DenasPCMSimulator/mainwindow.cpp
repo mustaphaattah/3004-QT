@@ -95,11 +95,11 @@ void MainWindow::changeMenu(QString selectedMenu)
     }
     else if (selectedMenu.contains(allOptions[2])){
         //CREATE INSTANCE OF MED MENU obj
-        MedWindow medMenu;
-        medMenu.setModal(true);
-        hide();
-        medMenu.exec();
-        show();
+//        MedWindow medMenu;
+//        medMenu.setModal(true);
+//        hide();
+//        medMenu.exec();
+//        show();
     }
     else if (selectedMenu.contains(allOptions[3])){
         //CREATE INSTANCE OF Screening MENU obj
@@ -115,11 +115,12 @@ void MainWindow::changeMenu(QString selectedMenu)
         childrenWindow.setModal(true);
         hide();
         childrenWindow.exec();
+
         show();
     }
     else if (selectedMenu.contains(allOptions[5])){
         //CREATE INSTANCE OF Settings MENU obj
-        settingsWindow settingsMenu;
+        SettingsWindow settingsMenu;
         settingsMenu.setModal(true);
         hide();
         settingsMenu.exec();

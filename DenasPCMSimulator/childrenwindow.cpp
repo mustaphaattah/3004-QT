@@ -1,5 +1,7 @@
 #include "childrenwindow.h"
 #include "ui_childrenwindow.h"
+#include "mainwindow.h"
+#include <iostream>
 
 ChildrenWindow::ChildrenWindow(QDialog *parent) :
     QDialog(parent),
@@ -7,9 +9,76 @@ ChildrenWindow::ChildrenWindow(QDialog *parent) :
 {
     ui->setupUi(this);
     this->setWindowTitle("CHILDREN Menu");
+    selectionIndex = 0;
+    childrenDoctor = false;
+    ui->childrenMenu->setCurrentRow(selectionIndex);
+    ui->childrenMenu->setFocus();
+
+    for (int i = 0; i < 5; ++i) {
+        ui->childrenMenu->addItem(childrenOptions[i]);
+    }
 }
 
 ChildrenWindow::~ChildrenWindow()
 {
     delete ui;
+}
+
+void ChildrenWindow::menuOptionHandler(QString selection)
+{
+    if(selection.contains(childrenOptions[0])){
+        childrenDoctor = false;
+        cout<< "child doctor toggled OFF!"<<endl;
+        close();
+    }
+    else{
+        childrenDoctor = true;
+        cout<< "child doctor toggled ON!"<<endl;
+        close();
+    }
+}
+
+bool ChildrenWindow:: getChildrenDoctor()
+{
+
+    return childrenDoctor ;// childrenDoctor;
+}
+
+
+void ChildrenWindow::on_upButton_clicked()
+{
+    if(childrenOptions == 0){
+        selectionIndex = 4;
+    } else {
+    selectionIndex -=1;
+    }
+    ui->childrenMenu->setCurrentRow(selectionIndex);
+    ui->childrenMenu->setFocus();
+}
+
+void ChildrenWindow::on_downButton_clicked()
+{
+    if(selectionIndex == 4){
+        selectionIndex = 0;
+    } else {
+    selectionIndex +=1;
+    }
+    ui->childrenMenu->setCurrentRow(selectionIndex);
+    ui->childrenMenu->setFocus();
+}
+
+void ChildrenWindow::on_leftButton_clicked()
+{
+    close();
+}
+
+
+void ChildrenWindow::on_selectButton_clicked()
+{
+    menuOptionHandler(childrenOptions[selectionIndex]);
+}
+
+void ChildrenWindow::on_powerButton_clicked()
+{
+    exit(0);
 }
