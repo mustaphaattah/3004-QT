@@ -2,6 +2,7 @@
 #define SETTINGSWINDOW_H
 
 #include <QDialog>
+#include <QDateTime>
 
 namespace Ui {
 class SettingsWindow;
@@ -28,6 +29,7 @@ private slots:
 
 private:
     Ui::SettingsWindow *ui;
+    QTime time;
     QString settingsOptions[8] = {"SOUND", "BRIGHTNESS", "ECONOMY", "RECORDING", "CLOCK", "ALARM CLOCK", "LANGUAGE", "CONTACT"};
     QString soundOptions[3] = {"GENERAL", "SOUND CONT.", "SOUND BUT."};
     QString onOffOptions[2] = {"OFF", "ON"};
@@ -37,6 +39,8 @@ private:
     int menuSize;
     void menuOptionHandler(QString selection);
     void displayMenu(QString arr[], int size);
+    void setTime();
+    void brightness();
 
 };
 

@@ -6,6 +6,8 @@
 
 QTimer *settingsBatteryUpdateTimer = new QTimer();
 
+int brightness = 50;
+
 SettingsWindow::SettingsWindow(QDialog *parent) :
     QDialog(parent),
     ui(new Ui::SettingsWindow)
@@ -35,23 +37,23 @@ void SettingsWindow::fetchBatteryLife() {
 
 void SettingsWindow::menuOptionHandler(QString selection){
     //hanlde each option selected
-    if(selection.contains("SOUND")){
+    if(selection == ("SOUND")){
         screenTitle = selection;
-
         displayMenu(soundOptions, 3);
         cout<< "sound!"<<endl;
-    }else if (selection.contains("BRIGHTNESS")) {
+    }else if (selection == ("BRIGHTNESS")) {
         //launch displays
-
-    }else if (selection.contains("RECORDING")) {
+        cout << "launch brightness window"<< endl;
+    }else if (selection == ("RECORDING")) {
         screenTitle = selection;
-
         displayMenu(enableOptions, 2);
-    }else if (screenTitle.contains("CLOCK")) {
-        //clock launch menu
 
-    }else if (selection.contains("ON") || selection.contains("OFF") ||
-              selection.contains("DISABLE") || selection.contains("ENABLE")) {
+    }else if (selection == ("CLOCK")) {
+        //clock launch menu
+        cout<< "in clock"<< endl;
+    }else if (selection == ("ON") || selection == ("OFF") ||
+              selection == ("DISABLE") || selection == ("ENABLE") ||
+              selection == "GENERAL") {
         screenTitle = "SETTINGS";
         displayMenu(settingsOptions, 8);
     }else {
