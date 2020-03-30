@@ -37,7 +37,6 @@ void SettingsWindow::menuOptionHandler(QString selection){
     //hanlde each option selected
     if(selection.contains("SOUND")){
         screenTitle = selection;
-
         displayMenu(soundOptions, 3);
         cout<< "sound!"<<endl;
     }else if (selection.contains("BRIGHTNESS")) {
@@ -51,7 +50,8 @@ void SettingsWindow::menuOptionHandler(QString selection){
         //clock launch menu
 
     }else if (selection.contains("ON") || selection.contains("OFF") ||
-              selection.contains("DISABLE") || selection.contains("ENABLE")) {
+              selection.contains("DISABLE") || selection.contains("ENABLE") ||
+              selection.contains("GENERAL")) {
         screenTitle = "SETTINGS";
         displayMenu(settingsOptions, 8);
     }else {
@@ -110,3 +110,5 @@ void SettingsWindow::on_selectButton_clicked()
     cout<< selection.toStdString() <<endl;
     menuOptionHandler(selection);
 }
+
+void 
