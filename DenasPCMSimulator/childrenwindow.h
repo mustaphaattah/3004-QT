@@ -19,6 +19,8 @@ public:
 private slots:
     void on_upButton_clicked();
 
+    void fetchBatteryLife();
+
     void on_downButton_clicked();
 
     void on_selectButton_clicked();

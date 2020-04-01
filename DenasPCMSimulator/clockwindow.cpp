@@ -1,8 +1,12 @@
 #include "clockwindow.h"
 #include "ui_clockwindow.h"
+#include "mainwindow.h"
 
 #include <QDateTime>
 #include <iostream>
+#include <QTimer>
+
+QTimer *clockBatteryUpdateTimer = new QTimer();
 
 
 ClockWindow::ClockWindow(QWidget *parent) :
@@ -10,6 +14,7 @@ ClockWindow::ClockWindow(QWidget *parent) :
     ui(new Ui::ClockWindow)
 {
     ui->setupUi(this);
+    ui->batteryStatus->setValue(batteryLevel);
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(clockFunction()));
     timer->start(1000);
@@ -18,6 +23,11 @@ ClockWindow::ClockWindow(QWidget *parent) :
     ui->downButton->setEnabled(false);
     ui->rightButton->setEnabled(false);
     ui->leftButton->setEnabled(false);
+    ui->selectButton->setText("Back");
+
+    connect(clockBatteryUpdateTimer,SIGNAL(timeout()),this,SLOT(fetchBatteryLife()));
+    clockBatteryUpdateTimer->start(2500);
+
     clockFunction();
 
 }
@@ -38,6 +48,10 @@ void ClockWindow::clockFunction(){
     ui->timeLabel->setText(timeText);
     std::cout<<"tick"<<std::endl;
 
+}
+
+void ClockWindow::fetchBatteryLife() {
+    ui->batteryStatus->setValue(batteryLevel);
 }
 
 

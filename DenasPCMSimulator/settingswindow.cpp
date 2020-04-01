@@ -140,3 +140,4 @@ void SettingsWindow::on_backButton_clicked()
 {
     close();
 }
+

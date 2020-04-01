@@ -20,6 +20,7 @@ private slots:
     void on_selectButton_clicked();
     void clockFunction();
     void on_powerButton_clicked();
+    void fetchBatteryLife();
 
 private:
     Ui::ClockWindow *ui;

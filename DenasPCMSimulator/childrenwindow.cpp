@@ -3,6 +3,10 @@
 #include "mainwindow.h"
 #include <iostream>
 
+#include <QTimer>
+
+QTimer *childrenBatteryUpdateTimer = new QTimer();
+
 ChildrenWindow::ChildrenWindow(QDialog *parent) :
     QDialog(parent),
     ui(new Ui::ChildrenWindow)
@@ -14,6 +18,10 @@ ChildrenWindow::ChildrenWindow(QDialog *parent) :
 
     ui->leftButton->setEnabled(false);
     ui->rightButton->setEnabled(false);
+    ui->batteryStatus->setValue(batteryLevel);
+
+    connect(childrenBatteryUpdateTimer,SIGNAL(timeout()),this,SLOT(fetchBatteryLife()));
+    childrenBatteryUpdateTimer->start(2500);
 
     for (int i = 0; i < 5; ++i) {
         ui->childrenMenu->addItem(childrenOptions[i]);
@@ -57,6 +65,10 @@ void ChildrenWindow::on_upButton_clicked()
     }
     ui->childrenMenu->setCurrentRow(selectionIndex);
     ui->childrenMenu->setFocus();
+}
+
+void ChildrenWindow:: fetchBatteryLife(){
+    ui->batteryStatus->setValue(batteryLevel);
 }
 
 void ChildrenWindow::on_downButton_clicked()
