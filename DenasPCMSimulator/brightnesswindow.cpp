@@ -12,6 +12,8 @@ BrightnessWindow::BrightnessWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->batteryStatus->setValue(batteryLevel);
     ui->brightnessIndicator->setText(QString::number(brightness));
+    ui->brightnessBar->setRange(0, 50);
+    ui->brightnessBar->setTextVisible(false);
 
     this->setWindowTitle("BRIGHTNESS");
     //ui->brightnessIndicator->setText()
@@ -31,6 +33,7 @@ void BrightnessWindow::on_rightButton_clicked()
     if (brightness >= 0 && brightness <= 50 ){
         brightness++;
         ui->brightnessIndicator->setText(QString::number(brightness));
+        ui->brightnessBar->setValue(brightness);
     }
 }
 
@@ -39,6 +42,7 @@ void BrightnessWindow::on_leftButton_clicked()
     if (brightness >= 0 && brightness <= 50 ){
         brightness--;
         ui->brightnessIndicator->setText(QString::number(brightness));
+        ui->brightnessBar->setValue(brightness);
     }
 }
 

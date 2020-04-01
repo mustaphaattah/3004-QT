@@ -71,7 +71,7 @@ public:
         brightnessIndicator->setObjectName(QString::fromUtf8("brightnessIndicator"));
         brightnessIndicator->setGeometry(QRect(90, 120, 80, 60));
         QFont font;
-        font.setPointSize(20);
+        font.setPointSize(25);
         brightnessIndicator->setFont(font);
         brightnessLabel = new QLabel(BrightnessWindow);
         brightnessLabel->setObjectName(QString::fromUtf8("brightnessLabel"));
@@ -102,7 +102,7 @@ public:
         brightnessIndicator->setHtml(QCoreApplication::translate("BrightnessWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Sans'; font-size:20pt; font-weight:400; font-style:normal;\">\n"
+"</style></head><body style=\" font-family:'Sans'; font-size:25pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;\"><br /></p></body></html>", nullptr));
         brightnessLabel->setText(QCoreApplication::translate("BrightnessWindow", "Brightness", nullptr));
     } // retranslateUi
