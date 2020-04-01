@@ -9,6 +9,7 @@ class MainWindow;
 }
 
 extern int batteryLevel;
+extern int brightness;
 
 class MainWindow : public QMainWindow
 {
@@ -34,9 +35,12 @@ private:
 
 public:
     int getBatteryLevel();
+    int getBrightness();
+
 
 public:
     void setBatteryLevel(int &batteryLevelRef, int newLevel);
+    void setBrightness(int &brightness, int newLevel);
 
 public:
     void checkBatteryStatus();

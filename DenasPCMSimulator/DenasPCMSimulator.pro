@@ -28,6 +28,7 @@ SOURCES += \
         batterywarningdialog.cpp \
         brightnesswindow.cpp \
         childrenwindow.cpp \
+        clockwindow.cpp \
         frequencywindow.cpp \
         main.cpp \
         mainwindow.cpp \
@@ -40,6 +41,7 @@ HEADERS += \
         batterywarningdialog.h \
         brightnesswindow.h \
         childrenwindow.h \
+        clockwindow.h \
         frequencywindow.h \
         mainwindow.h \
         medwindow.h \
@@ -51,6 +53,7 @@ FORMS += \
         batterywarningdialog.ui \
         brightnesswindow.ui \
         childrenwindow.ui \
+        clockwindow.ui \
         frequencywindow.ui \
         mainwindow.ui \
         medwindow.ui \

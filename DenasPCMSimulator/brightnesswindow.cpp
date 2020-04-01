@@ -1,8 +1,9 @@
 #include "brightnesswindow.h"
 #include "ui_brightnesswindow.h"
+#include "mainwindow.h"
 
+#include <QTimer>
 
-QTimer *settingsBatteryUpdateTimer = new QTimer();
 
 BrightnessWindow::BrightnessWindow(QWidget *parent) :
     QDialog(parent),
@@ -10,15 +11,43 @@ BrightnessWindow::BrightnessWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->batteryStatus->setValue(batteryLevel);
-    connect(settingsBatteryUpdateTimer,SIGNAL(timeout()),this,SLOT(fetchBatteryLife()));
-    settingsBatteryUpdateTimer->start(2500);
+    ui->brightnessIndicator->setText(QString::number(brightness));
 
-    screenTitle = "SETTINGS";
-    this->setWindowTitle(screenTitle);
+    this->setWindowTitle("BRIGHTNESS");
+    //ui->brightnessIndicator->setText()
 
 }
 
 BrightnessWindow::~BrightnessWindow()
 {
     delete ui;
+}
+
+void BrightnessWindow::fetchBatteryLife(){
+    ui->batteryStatus->setValue(batteryLevel);
+}
+void BrightnessWindow::on_rightButton_clicked()
+{
+    if (brightness >= 0 && brightness <= 50 ){
+        brightness++;
+        ui->brightnessIndicator->setText(QString::number(brightness));
+    }
+}
+
+void BrightnessWindow::on_leftButton_clicked()
+{
+    if (brightness >= 0 && brightness <= 50 ){
+        brightness--;
+        ui->brightnessIndicator->setText(QString::number(brightness));
+    }
+}
+
+void BrightnessWindow::on_selectButton_clicked()
+{
+    close();
+}
+
+void BrightnessWindow::on_powerButton_clicked()
+{
+    exit(0);
 }

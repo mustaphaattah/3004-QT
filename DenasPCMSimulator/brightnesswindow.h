@@ -15,6 +15,17 @@ public:
     explicit BrightnessWindow(QWidget *parent = nullptr);
     ~BrightnessWindow();
 
+    void fetchBatteryLife();
+
+private slots:
+    void on_rightButton_clicked();
+
+    void on_leftButton_clicked();
+
+    void on_selectButton_clicked();
+
+    void on_powerButton_clicked();
+
 private:
     Ui::BrightnessWindow *ui;
 };

@@ -1,12 +1,14 @@
 #include "settingswindow.h"
 #include "ui_settingswindow.h"
-#include <QTimer>
 #include "mainwindow.h"
+#include "brightnesswindow.h"
+#include "clockwindow.h"
+
+#include <QTimer>
 #include <iostream>
 
 QTimer *settingsBatteryUpdateTimer = new QTimer();
 
-int brightness = 50;
 
 SettingsWindow::SettingsWindow(QDialog *parent) :
     QDialog(parent),
@@ -44,13 +46,21 @@ void SettingsWindow::menuOptionHandler(QString selection){
     }else if (selection == ("BRIGHTNESS")) {
         //launch displays
         cout << "launch brightness window"<< endl;
+        BrightnessWindow brightWindow;
+        hide();
+        brightWindow.exec();
+        show();
+
     }else if (selection == ("RECORDING")) {
         screenTitle = selection;
         displayMenu(enableOptions, 2);
 
     }else if (selection == ("CLOCK")) {
         //clock launch menu
-        cout<< "in clock"<< endl;
+        ClockWindow clock;
+        hide();
+        clock.exec();
+        show();
     }else if (selection == ("ON") || selection == ("OFF") ||
               selection == ("DISABLE") || selection == ("ENABLE") ||
               selection == "GENERAL") {
