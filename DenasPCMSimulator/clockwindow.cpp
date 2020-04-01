@@ -14,6 +14,10 @@ ClockWindow::ClockWindow(QWidget *parent) :
     connect(timer, SIGNAL(timeout()), this, SLOT(clockFunction()));
     timer->start(1000);
 
+    ui->upButton->setEnabled(false);
+    ui->downButton->setEnabled(false);
+    ui->rightButton->setEnabled(false);
+    ui->leftButton->setEnabled(false);
     clockFunction();
 
 }

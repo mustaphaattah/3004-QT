@@ -122,3 +122,8 @@ void SettingsWindow::on_selectButton_clicked()
     cout<< selection.toStdString() <<endl;
     menuOptionHandler(selection);
 }
+
+void SettingsWindow::on_backButton_clicked()
+{
+    close();
+}

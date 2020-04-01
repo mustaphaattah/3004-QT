@@ -171,16 +171,6 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QTimeEdit" name="timeEdit">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>190</y>
-     <width>118</width>
-     <height>26</height>
-    </rect>
-   </property>
-  </widget>
  </widget>
  <resources/>
  <connections/>

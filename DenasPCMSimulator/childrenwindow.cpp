@@ -11,12 +11,15 @@ ChildrenWindow::ChildrenWindow(QDialog *parent) :
     this->setWindowTitle("CHILDREN Menu");
     selectionIndex = 0;
     childrenDoctor = false;
-    ui->childrenMenu->setCurrentRow(selectionIndex);
-    ui->childrenMenu->setFocus();
+
+    ui->leftButton->setEnabled(false);
+    ui->rightButton->setEnabled(false);
 
     for (int i = 0; i < 5; ++i) {
         ui->childrenMenu->addItem(childrenOptions[i]);
     }
+    ui->childrenMenu->setCurrentRow(selectionIndex);
+    ui->childrenMenu->setFocus();
 }
 
 ChildrenWindow::~ChildrenWindow()
@@ -47,7 +50,7 @@ bool ChildrenWindow:: getChildrenDoctor()
 
 void ChildrenWindow::on_upButton_clicked()
 {
-    if(childrenOptions == 0){
+    if(selectionIndex == 0){
         selectionIndex = 4;
     } else {
     selectionIndex -=1;
@@ -67,12 +70,6 @@ void ChildrenWindow::on_downButton_clicked()
     ui->childrenMenu->setFocus();
 }
 
-void ChildrenWindow::on_leftButton_clicked()
-{
-    close();
-}
-
-
 void ChildrenWindow::on_selectButton_clicked()
 {
     menuOptionHandler(childrenOptions[selectionIndex]);
@@ -81,4 +78,9 @@ void ChildrenWindow::on_selectButton_clicked()
 void ChildrenWindow::on_powerButton_clicked()
 {
     exit(0);
+}
+
+void ChildrenWindow::on_backButton_clicked()
+{
+    close();
 }

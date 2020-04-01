@@ -16,7 +16,6 @@
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QTimeEdit>
 
 QT_BEGIN_NAMESPACE
 
@@ -33,7 +32,6 @@ public:
     QPushButton *downButton;
     QPushButton *leftButton;
     QLabel *timeLabel;
-    QTimeEdit *timeEdit;
 
     void setupUi(QDialog *ClockWindow)
     {
@@ -88,9 +86,6 @@ public:
         font2.setWeight(75);
         timeLabel->setFont(font2);
         timeLabel->setAlignment(Qt::AlignCenter);
-        timeEdit = new QTimeEdit(ClockWindow);
-        timeEdit->setObjectName(QString::fromUtf8("timeEdit"));
-        timeEdit->setGeometry(QRect(80, 190, 118, 26));
 
         retranslateUi(ClockWindow);
 

@@ -36,14 +36,14 @@ QT_MOC_LITERAL(0, 0, 14), // "ChildrenWindow"
 QT_MOC_LITERAL(1, 15, 19), // "on_upButton_clicked"
 QT_MOC_LITERAL(2, 35, 0), // ""
 QT_MOC_LITERAL(3, 36, 21), // "on_downButton_clicked"
-QT_MOC_LITERAL(4, 58, 21), // "on_leftButton_clicked"
-QT_MOC_LITERAL(5, 80, 23), // "on_selectButton_clicked"
-QT_MOC_LITERAL(6, 104, 22) // "on_powerButton_clicked"
+QT_MOC_LITERAL(4, 58, 23), // "on_selectButton_clicked"
+QT_MOC_LITERAL(5, 82, 22), // "on_powerButton_clicked"
+QT_MOC_LITERAL(6, 105, 21) // "on_backButton_clicked"
 
     },
     "ChildrenWindow\0on_upButton_clicked\0\0"
-    "on_downButton_clicked\0on_leftButton_clicked\0"
-    "on_selectButton_clicked\0on_powerButton_clicked"
+    "on_downButton_clicked\0on_selectButton_clicked\0"
+    "on_powerButton_clicked\0on_backButton_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -85,9 +85,9 @@ void ChildrenWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         switch (_id) {
         case 0: _t->on_upButton_clicked(); break;
         case 1: _t->on_downButton_clicked(); break;
-        case 2: _t->on_leftButton_clicked(); break;
-        case 3: _t->on_selectButton_clicked(); break;
-        case 4: _t->on_powerButton_clicked(); break;
+        case 2: _t->on_selectButton_clicked(); break;
+        case 3: _t->on_powerButton_clicked(); break;
+        case 4: _t->on_backButton_clicked(); break;
         default: ;
         }
     }

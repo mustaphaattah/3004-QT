@@ -15,6 +15,9 @@ BrightnessWindow::BrightnessWindow(QWidget *parent) :
     ui->brightnessBar->setRange(0, 50);
     ui->brightnessBar->setTextVisible(false);
 
+    ui->upButton->setEnabled(false);
+    ui->downButton->setEnabled(false);
+
     this->setWindowTitle("BRIGHTNESS");
     //ui->brightnessIndicator->setText()
 
