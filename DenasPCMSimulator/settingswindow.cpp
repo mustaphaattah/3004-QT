@@ -55,6 +55,19 @@ void SettingsWindow::menuOptionHandler(QString selection){
         screenTitle = selection;
         displayMenu(enableOptions, 2);
 
+    }else if (selection == ("LANGUAGE")) {
+        screenTitle = selection;
+        ui->settingsMenu->clear();
+        this->setWindowTitle(screenTitle);
+        ui->settingsMenu->addItem("ENGLISH");
+
+        menuSize = 1;
+        selectionIndex = 0;
+        ui->settingsMenu->setCurrentRow(selectionIndex);
+        ui->settingsMenu->setFocus();
+
+    }else if (selection == "ENGLISH"){
+        close();
     }else if (selection == ("CLOCK")) {
         //clock launch menu
         ClockWindow clock;
