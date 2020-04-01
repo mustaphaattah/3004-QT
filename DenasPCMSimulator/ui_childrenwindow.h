@@ -15,6 +15,7 @@
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
 
 QT_BEGIN_NAMESPACE
 
@@ -29,7 +30,7 @@ public:
     QPushButton *selectButton;
     QPushButton *leftButton;
     QPushButton *powerButton;
-    QPushButton *backButton;
+    QRadioButton *skinElectrode;
 
     void setupUi(QDialog *ChildrenWindow)
     {
@@ -63,9 +64,9 @@ public:
         powerButton = new QPushButton(ChildrenWindow);
         powerButton->setObjectName(QString::fromUtf8("powerButton"));
         powerButton->setGeometry(QRect(190, 330, 61, 21));
-        backButton = new QPushButton(ChildrenWindow);
-        backButton->setObjectName(QString::fromUtf8("backButton"));
-        backButton->setGeometry(QRect(140, 280, 61, 21));
+        skinElectrode = new QRadioButton(ChildrenWindow);
+        skinElectrode->setObjectName(QString::fromUtf8("skinElectrode"));
+        skinElectrode->setGeometry(QRect(140, 290, 106, 23));
 
         retranslateUi(ChildrenWindow);
 
@@ -81,7 +82,7 @@ public:
         selectButton->setText(QCoreApplication::translate("ChildrenWindow", "Select", nullptr));
         leftButton->setText(QCoreApplication::translate("ChildrenWindow", "\342\206\220 ", nullptr));
         powerButton->setText(QCoreApplication::translate("ChildrenWindow", "Power", nullptr));
-        backButton->setText(QCoreApplication::translate("ChildrenWindow", "Back", nullptr));
+        skinElectrode->setText(QCoreApplication::translate("ChildrenWindow", "Skin On/Off", nullptr));
     } // retranslateUi
 
 };

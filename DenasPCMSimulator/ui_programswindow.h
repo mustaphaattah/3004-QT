@@ -23,7 +23,7 @@ class Ui_ProgramsWindow
 {
 public:
     QPushButton *upButton;
-    QListWidget *childrenMenu;
+    QListWidget *programsMenu;
     QPushButton *rightButton;
     QPushButton *powerButton;
     QPushButton *downButton;
@@ -41,9 +41,9 @@ public:
         upButton->setObjectName(QString::fromUtf8("upButton"));
         upButton->setGeometry(QRect(40, 260, 31, 25));
         upButton->setCheckable(false);
-        childrenMenu = new QListWidget(ProgramsWindow);
-        childrenMenu->setObjectName(QString::fromUtf8("childrenMenu"));
-        childrenMenu->setGeometry(QRect(0, 30, 256, 221));
+        programsMenu = new QListWidget(ProgramsWindow);
+        programsMenu->setObjectName(QString::fromUtf8("programsMenu"));
+        programsMenu->setGeometry(QRect(0, 30, 256, 221));
         rightButton = new QPushButton(ProgramsWindow);
         rightButton->setObjectName(QString::fromUtf8("rightButton"));
         rightButton->setGeometry(QRect(70, 290, 31, 25));

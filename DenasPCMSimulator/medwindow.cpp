@@ -73,14 +73,13 @@ void MedWindow::on_rightButton_clicked()
 
 void MedWindow::on_leftButton_clicked()
 {
-    intensity -= 1;
 
-    if (intensity >= 0) {
+    if (intensity > 0) {
+        intensity -= 1;
         ui->intensityIndicator->setText(QString::number(intensity));
-        intensity = 0;
-    } else {
-    ui->intensityIndicator->setText(QString::number(0));
-    }
+    } else
+        ui->intensityIndicator->setText(QString::number(0));
+
 }
 
 

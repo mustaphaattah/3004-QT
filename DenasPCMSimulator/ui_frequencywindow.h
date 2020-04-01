@@ -27,7 +27,7 @@ public:
     QPushButton *selectButton;
     QPushButton *upButton;
     QPushButton *rightButton;
-    QListWidget *childrenMenu;
+    QListWidget *frequencyMenu;
     QPushButton *downButton;
     QProgressBar *batteryStatus;
     QPushButton *powerButton;
@@ -53,9 +53,9 @@ public:
         rightButton = new QPushButton(FrequencyWindow);
         rightButton->setObjectName(QString::fromUtf8("rightButton"));
         rightButton->setGeometry(QRect(70, 290, 31, 25));
-        childrenMenu = new QListWidget(FrequencyWindow);
-        childrenMenu->setObjectName(QString::fromUtf8("childrenMenu"));
-        childrenMenu->setGeometry(QRect(0, 30, 256, 221));
+        frequencyMenu = new QListWidget(FrequencyWindow);
+        frequencyMenu->setObjectName(QString::fromUtf8("frequencyMenu"));
+        frequencyMenu->setGeometry(QRect(0, 30, 256, 221));
         downButton = new QPushButton(FrequencyWindow);
         downButton->setObjectName(QString::fromUtf8("downButton"));
         downButton->setGeometry(QRect(40, 320, 31, 25));

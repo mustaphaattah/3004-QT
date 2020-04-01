@@ -27,8 +27,6 @@ private slots:
 
     void on_selectButton_clicked();
 
-    void on_backButton_clicked();
-
 private:
     Ui::SettingsWindow *ui;
     QTime time;

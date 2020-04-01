@@ -19,15 +19,13 @@ public:
 private slots:
     void on_upButton_clicked();
 
-    void fetchBatteryLife();
-
     void on_downButton_clicked();
+
+    void on_leftButton_clicked();
 
     void on_selectButton_clicked();
 
     void on_powerButton_clicked();
-
-    void on_backButton_clicked();
 
 private:
     Ui::ChildrenWindow *ui;

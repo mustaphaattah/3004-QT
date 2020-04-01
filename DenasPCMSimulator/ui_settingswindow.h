@@ -15,6 +15,7 @@
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
 
 QT_BEGIN_NAMESPACE
 
@@ -26,10 +27,10 @@ public:
     QPushButton *downButton;
     QProgressBar *batteryStatus;
     QPushButton *powerButton;
+    QRadioButton *skinElectrode;
     QPushButton *selectButton;
     QPushButton *rightButton;
     QPushButton *upButton;
-    QPushButton *backButton;
 
     void setupUi(QDialog *SettingsWindow)
     {
@@ -53,6 +54,9 @@ public:
         powerButton = new QPushButton(SettingsWindow);
         powerButton->setObjectName(QString::fromUtf8("powerButton"));
         powerButton->setGeometry(QRect(190, 330, 61, 21));
+        skinElectrode = new QRadioButton(SettingsWindow);
+        skinElectrode->setObjectName(QString::fromUtf8("skinElectrode"));
+        skinElectrode->setGeometry(QRect(140, 290, 106, 23));
         selectButton = new QPushButton(SettingsWindow);
         selectButton->setObjectName(QString::fromUtf8("selectButton"));
         selectButton->setGeometry(QRect(110, 330, 71, 21));
@@ -63,9 +67,6 @@ public:
         upButton->setObjectName(QString::fromUtf8("upButton"));
         upButton->setGeometry(QRect(40, 260, 31, 25));
         upButton->setCheckable(false);
-        backButton = new QPushButton(SettingsWindow);
-        backButton->setObjectName(QString::fromUtf8("backButton"));
-        backButton->setGeometry(QRect(140, 280, 61, 21));
 
         retranslateUi(SettingsWindow);
 
@@ -78,10 +79,10 @@ public:
         leftButton->setText(QCoreApplication::translate("SettingsWindow", "\342\206\220 ", nullptr));
         downButton->setText(QCoreApplication::translate("SettingsWindow", "\342\206\223", nullptr));
         powerButton->setText(QCoreApplication::translate("SettingsWindow", "Power", nullptr));
+        skinElectrode->setText(QCoreApplication::translate("SettingsWindow", "Skin On/Off", nullptr));
         selectButton->setText(QCoreApplication::translate("SettingsWindow", "Select", nullptr));
         rightButton->setText(QCoreApplication::translate("SettingsWindow", "\342\206\222", nullptr));
         upButton->setText(QCoreApplication::translate("SettingsWindow", "\342\206\221", nullptr));
-        backButton->setText(QCoreApplication::translate("SettingsWindow", "Back", nullptr));
     } // retranslateUi
 
 };

@@ -1,14 +1,12 @@
 #include "settingswindow.h"
 #include "ui_settingswindow.h"
-#include "mainwindow.h"
-#include "brightnesswindow.h"
-#include "clockwindow.h"
-
 #include <QTimer>
+#include "mainwindow.h"
 #include <iostream>
 
 QTimer *settingsBatteryUpdateTimer = new QTimer();
 
+int brightness = 50;
 
 SettingsWindow::SettingsWindow(QDialog *parent) :
     QDialog(parent),
@@ -46,34 +44,13 @@ void SettingsWindow::menuOptionHandler(QString selection){
     }else if (selection == ("BRIGHTNESS")) {
         //launch displays
         cout << "launch brightness window"<< endl;
-        BrightnessWindow brightWindow;
-        hide();
-        brightWindow.exec();
-        show();
-
     }else if (selection == ("RECORDING")) {
         screenTitle = selection;
         displayMenu(enableOptions, 2);
 
-    }else if (selection == ("LANGUAGE")) {
-        screenTitle = selection;
-        ui->settingsMenu->clear();
-        this->setWindowTitle(screenTitle);
-        ui->settingsMenu->addItem("ENGLISH");
-
-        menuSize = 1;
-        selectionIndex = 0;
-        ui->settingsMenu->setCurrentRow(selectionIndex);
-        ui->settingsMenu->setFocus();
-
-    }else if (selection == "ENGLISH"){
-        close();
     }else if (selection == ("CLOCK")) {
         //clock launch menu
-        ClockWindow clock;
-        hide();
-        clock.exec();
-        show();
+        cout<< "in clock"<< endl;
     }else if (selection == ("ON") || selection == ("OFF") ||
               selection == ("DISABLE") || selection == ("ENABLE") ||
               selection == "GENERAL") {
@@ -135,9 +112,3 @@ void SettingsWindow::on_selectButton_clicked()
     cout<< selection.toStdString() <<endl;
     menuOptionHandler(selection);
 }
-
-void SettingsWindow::on_backButton_clicked()
-{
-    close();
-}
-

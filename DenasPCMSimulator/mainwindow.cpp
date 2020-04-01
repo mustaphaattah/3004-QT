@@ -14,7 +14,6 @@ using namespace std;
 QTimer *batteryTimer = new QTimer;
 
 int batteryLevel;
-int brightness;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -23,13 +22,12 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //Setting the initial selection index to 0 and Battery to 100% and other global variables
+    //Setting the initial selection index to 0 and Battery to 100%
     selectionIndex = 0;
     batteryLevel = 100;
     ui->batteryStatus->setValue(batteryLevel);
     connect(batteryTimer,SIGNAL(timeout()),this,SLOT(batteryManager()));
-    batteryTimer->start(10000);
-    brightness = 25;
+    batteryTimer->start(5000);
 
     //Disabling the left and right buttons. Not needed in main menu
     ui->leftButton->setEnabled(false);

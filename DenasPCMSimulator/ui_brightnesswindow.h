@@ -16,6 +16,7 @@
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
 #include <QtWidgets/QTextEdit>
 
 QT_BEGIN_NAMESPACE
@@ -23,23 +24,26 @@ QT_BEGIN_NAMESPACE
 class Ui_BrightnessWindow
 {
 public:
+    QRadioButton *skinElectrode;
     QProgressBar *batteryStatus;
     QPushButton *leftButton;
     QPushButton *powerButton;
-    QListWidget *brightnessMenu;
+    QListWidget *settingsMenu;
     QPushButton *upButton;
     QPushButton *downButton;
     QPushButton *selectButton;
     QPushButton *rightButton;
     QTextEdit *brightnessIndicator;
     QLabel *brightnessLabel;
-    QProgressBar *brightnessBar;
 
     void setupUi(QDialog *BrightnessWindow)
     {
         if (BrightnessWindow->objectName().isEmpty())
             BrightnessWindow->setObjectName(QString::fromUtf8("BrightnessWindow"));
         BrightnessWindow->resize(260, 400);
+        skinElectrode = new QRadioButton(BrightnessWindow);
+        skinElectrode->setObjectName(QString::fromUtf8("skinElectrode"));
+        skinElectrode->setGeometry(QRect(140, 290, 106, 23));
         batteryStatus = new QProgressBar(BrightnessWindow);
         batteryStatus->setObjectName(QString::fromUtf8("batteryStatus"));
         batteryStatus->setEnabled(true);
@@ -51,9 +55,9 @@ public:
         powerButton = new QPushButton(BrightnessWindow);
         powerButton->setObjectName(QString::fromUtf8("powerButton"));
         powerButton->setGeometry(QRect(190, 330, 61, 21));
-        brightnessMenu = new QListWidget(BrightnessWindow);
-        brightnessMenu->setObjectName(QString::fromUtf8("brightnessMenu"));
-        brightnessMenu->setGeometry(QRect(0, 30, 256, 221));
+        settingsMenu = new QListWidget(BrightnessWindow);
+        settingsMenu->setObjectName(QString::fromUtf8("settingsMenu"));
+        settingsMenu->setGeometry(QRect(0, 30, 256, 221));
         upButton = new QPushButton(BrightnessWindow);
         upButton->setObjectName(QString::fromUtf8("upButton"));
         upButton->setGeometry(QRect(40, 260, 31, 25));
@@ -69,21 +73,10 @@ public:
         rightButton->setGeometry(QRect(70, 290, 31, 25));
         brightnessIndicator = new QTextEdit(BrightnessWindow);
         brightnessIndicator->setObjectName(QString::fromUtf8("brightnessIndicator"));
-        brightnessIndicator->setGeometry(QRect(90, 120, 80, 60));
-        QFont font;
-        font.setPointSize(30);
-        brightnessIndicator->setFont(font);
+        brightnessIndicator->setGeometry(QRect(100, 120, 41, 31));
         brightnessLabel = new QLabel(BrightnessWindow);
         brightnessLabel->setObjectName(QString::fromUtf8("brightnessLabel"));
-        brightnessLabel->setGeometry(QRect(75, 80, 111, 31));
-        QFont font1;
-        font1.setPointSize(15);
-        brightnessLabel->setFont(font1);
-        brightnessBar = new QProgressBar(BrightnessWindow);
-        brightnessBar->setObjectName(QString::fromUtf8("brightnessBar"));
-        brightnessBar->setGeometry(QRect(40, 200, 181, 23));
-        brightnessBar->setMaximum(50);
-        brightnessBar->setValue(24);
+        brightnessLabel->setGeometry(QRect(90, 80, 111, 31));
 
         retranslateUi(BrightnessWindow);
 
@@ -93,6 +86,7 @@ public:
     void retranslateUi(QDialog *BrightnessWindow)
     {
         BrightnessWindow->setWindowTitle(QCoreApplication::translate("BrightnessWindow", "Dialog", nullptr));
+        skinElectrode->setText(QCoreApplication::translate("BrightnessWindow", "Skin On/Off", nullptr));
         leftButton->setText(QCoreApplication::translate("BrightnessWindow", "\342\206\220 ", nullptr));
         powerButton->setText(QCoreApplication::translate("BrightnessWindow", "Power", nullptr));
         upButton->setText(QCoreApplication::translate("BrightnessWindow", "\342\206\221", nullptr));
@@ -102,8 +96,8 @@ public:
         brightnessIndicator->setHtml(QCoreApplication::translate("BrightnessWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Sans'; font-size:30pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;\"><br /></p></body></html>", nullptr));
+"</style></head><body style=\" font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
         brightnessLabel->setText(QCoreApplication::translate("BrightnessWindow", "Brightness", nullptr));
     } // retranslateUi
 

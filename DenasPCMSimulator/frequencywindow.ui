@@ -81,7 +81,7 @@
     <string>→</string>
    </property>
   </widget>
-  <widget class="QListWidget" name="childrenMenu">
+  <widget class="QListWidget" name="frequencyMenu">
    <property name="geometry">
     <rect>
      <x>0</x>
