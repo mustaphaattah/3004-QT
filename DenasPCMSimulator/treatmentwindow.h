@@ -30,8 +30,13 @@ private slots:
 
     void treatmentManager();
 
+
 private:
     Ui::TreatmentWindow *ui;
+    int minTreatment;
+    int secTreatment;
+    int buttonTime;
+    int treatmentIntensity;
 
 };
 

@@ -13,13 +13,15 @@ ProgramsWindow::ProgramsWindow(QDialog *parent) :
 {
     ui->setupUi(this);
     ui->batteryStatus->setValue(batteryLevel);
+    ui->leftButton->setEnabled(false);
+    ui->rightButton->setEnabled(false);
     this->setWindowTitle("PROGRAMS Menu");
     connect(programsBatteryUpdateTimer,SIGNAL(timeout()),this,SLOT(fetchBatteryLife()));
     programsBatteryUpdateTimer->start(2500);
 
     selectionIndex = 0;
 
-    screenTitle = "SETTINGS";
+    screenTitle = "PROGRAMS";
     this->setWindowTitle(screenTitle);
     displayMenu(programsOptions, 3);
 }
@@ -100,6 +102,5 @@ void ProgramsWindow::on_downButton_clicked()
 void ProgramsWindow::on_selectButton_clicked()
 {
     QString selection = ui->programsMenu->currentItem()->text();
-    cout<< selection.toStdString() <<endl;
     menuOptionHandler(selection);
 }

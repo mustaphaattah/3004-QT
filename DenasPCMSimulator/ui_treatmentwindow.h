@@ -34,9 +34,10 @@ public:
     QPushButton *upButton;
     QRadioButton *skinElectrode;
     QLabel *intensityLevelLabel;
-    QLabel *TreatmentMin;
     QTextEdit *intensityIndicator;
+    QLabel *TreatmentMin;
     QLabel *TreatmentSec;
+    QLabel *Colon;
 
     void setupUi(QDialog *TreatmentWindow)
     {
@@ -75,16 +76,19 @@ public:
         skinElectrode->setGeometry(QRect(140, 290, 106, 23));
         intensityLevelLabel = new QLabel(TreatmentWindow);
         intensityLevelLabel->setObjectName(QString::fromUtf8("intensityLevelLabel"));
-        intensityLevelLabel->setGeometry(QRect(60, 80, 111, 31));
-        TreatmentMin = new QLabel(TreatmentWindow);
-        TreatmentMin->setObjectName(QString::fromUtf8("TreatmentMin"));
-        TreatmentMin->setGeometry(QRect(90, 200, 21, 20));
+        intensityLevelLabel->setGeometry(QRect(70, 80, 111, 31));
         intensityIndicator = new QTextEdit(TreatmentWindow);
         intensityIndicator->setObjectName(QString::fromUtf8("intensityIndicator"));
         intensityIndicator->setGeometry(QRect(100, 120, 41, 31));
+        TreatmentMin = new QLabel(TreatmentWindow);
+        TreatmentMin->setObjectName(QString::fromUtf8("TreatmentMin"));
+        TreatmentMin->setGeometry(QRect(90, 180, 21, 17));
         TreatmentSec = new QLabel(TreatmentWindow);
         TreatmentSec->setObjectName(QString::fromUtf8("TreatmentSec"));
-        TreatmentSec->setGeometry(QRect(120, 200, 21, 17));
+        TreatmentSec->setGeometry(QRect(120, 180, 21, 17));
+        Colon = new QLabel(TreatmentWindow);
+        Colon->setObjectName(QString::fromUtf8("Colon"));
+        Colon->setGeometry(QRect(110, 180, 16, 17));
 
         retranslateUi(TreatmentWindow);
 
@@ -102,13 +106,14 @@ public:
         upButton->setText(QCoreApplication::translate("TreatmentWindow", "\342\206\221", nullptr));
         skinElectrode->setText(QCoreApplication::translate("TreatmentWindow", "Skin On/Off", nullptr));
         intensityLevelLabel->setText(QCoreApplication::translate("TreatmentWindow", "Intensity Level", nullptr));
-        TreatmentMin->setText(QCoreApplication::translate("TreatmentWindow", "10", nullptr));
         intensityIndicator->setHtml(QCoreApplication::translate("TreatmentWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
+        TreatmentMin->setText(QCoreApplication::translate("TreatmentWindow", "10", nullptr));
         TreatmentSec->setText(QCoreApplication::translate("TreatmentWindow", "00", nullptr));
+        Colon->setText(QCoreApplication::translate("TreatmentWindow", ":", nullptr));
     } // retranslateUi
 
 };

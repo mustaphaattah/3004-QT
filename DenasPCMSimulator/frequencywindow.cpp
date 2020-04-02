@@ -11,7 +11,10 @@ FrequencyWindow::FrequencyWindow(QDialog *parent) :
     ui(new Ui::FrequencyWindow)
 {
     ui->setupUi(this);
+    ui->frequencyMenu->setFocus();
     ui->batteryStatus->setValue(batteryLevel);
+    ui->leftButton->setEnabled(false);
+    ui->rightButton->setEnabled(false);
     this->setWindowTitle("FREQUENCY Menu");
     connect(frequencyBatteryUpdateTimer,SIGNAL(timeout()),this,SLOT(fetchBatteryLife()));
     frequencyBatteryUpdateTimer->start(2500);

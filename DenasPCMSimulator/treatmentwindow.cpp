@@ -6,20 +6,18 @@
 #include <iostream>
 QTimer *TreatmentBatteryUpdateTimer = new QTimer();
 QTimer *TreatmentModeTimer = new QTimer();
-
-int treatmentIntensity;
-int seconds;
-int secTreatment = 59;
-int min;
-int minTreatment = 9;
-QTimer *timer = new QTimer;
+QTimer *TreatmentTimer = new QTimer;
 
 TreatmentWindow::TreatmentWindow(QDialog *parent) :
     QDialog(parent),
     ui(new Ui::TreatmentWindow)
 {
-    connect(timer,SIGNAL(timeout()),this,SLOT(treatmentManager()));
-    timer->start(1000);
+    buttonTime = 0;
+    secTreatment = 0;
+    minTreatment = 10;
+    treatmentIntensity = 0;
+    connect(TreatmentTimer,SIGNAL(timeout()),this,SLOT(treatmentManager()));
+    TreatmentTimer->start(1000);
     ui->setupUi(this);
     ui->batteryStatus->setValue(batteryLevel);
     ui->upButton->setEnabled(false);
@@ -27,8 +25,6 @@ TreatmentWindow::TreatmentWindow(QDialog *parent) :
     ui->skinElectrode->setChecked(false);
     ui->selectButton->setText("Back");
     ui->TreatmentMin->setText(QString::number(minTreatment));
-    ui->TreatmentSec->setText(QString::number(secTreatment));
-    treatmentIntensity = 0;
     ui->intensityIndicator->setFontWeight(30);
     ui->intensityIndicator->setText(QString::number(treatmentIntensity));
     ui->intensityIndicator->setFontWeight(30);
@@ -40,8 +36,8 @@ TreatmentWindow::TreatmentWindow(QDialog *parent) :
 
 TreatmentWindow::~TreatmentWindow()
 {
-    minTreatment = 9;
-    secTreatment = 59;
+    minTreatment = 10;
+    secTreatment = 0;
     delete ui;
 }
 
@@ -90,12 +86,22 @@ void TreatmentWindow::on_selectButton_clicked()
 
 void TreatmentWindow::treatmentManager()
 {
-    secTreatment -= 1;
+    if (minTreatment < 10)
+        ui->TreatmentMin->setText("0"+QString::number(minTreatment));
+    else
+        ui->TreatmentMin->setText(QString::number(minTreatment));
+    if (secTreatment < 10){
+        ui->TreatmentSec->setText("0"+QString::number(secTreatment));
+    }
+    else
+        ui->TreatmentSec->setText(QString::number(secTreatment));
+    if (secTreatment > 0)
+        secTreatment -= 1;
     if (secTreatment == 0){
+        if (minTreatment == 0){
+            this->close();
+        }
         minTreatment -= 1;
         secTreatment = 59;
-            ui->TreatmentMin->setText(QString::number(minTreatment));
-            ui->TreatmentSec->setText(QString::number(secTreatment));
     }
-    ui->TreatmentSec->setText(QString::number(secTreatment));
 }
