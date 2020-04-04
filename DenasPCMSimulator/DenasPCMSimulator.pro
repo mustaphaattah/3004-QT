@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2020-03-15T14:35:40
+# Project created by QtCreator 2020-04-03T19:54:41
 #
 #-------------------------------------------------
 
@@ -25,10 +25,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        battery.cpp \
         main.cpp \
         mainwindow.cpp
 
 HEADERS += \
+        battery.h \
         mainwindow.h
 
 FORMS += \
