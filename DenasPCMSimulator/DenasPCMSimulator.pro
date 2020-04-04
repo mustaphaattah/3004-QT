@@ -25,14 +25,44 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        batterywarningdialog.cpp \
+        brightnesswindow.cpp \
+        childrenwindow.cpp \
+        clockwindow.cpp \
+        frequencywindow.cpp \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        medwindow.cpp \
+        programswindow.cpp \
+        screeningwindow.cpp \
+        settingswindow.cpp \
+        treatmentwindow.cpp
 
 HEADERS += \
-        mainwindow.h
+        batterywarningdialog.h \
+        brightnesswindow.h \
+        childrenwindow.h \
+        clockwindow.h \
+        frequencywindow.h \
+        mainwindow.h \
+        medwindow.h \
+        programswindow.h \
+        screeningwindow.h \
+        settingswindow.h \
+        treatmentwindow.h
 
 FORMS += \
-        mainwindow.ui
+        batterywarningdialog.ui \
+        brightnesswindow.ui \
+        childrenwindow.ui \
+        clockwindow.ui \
+        frequencywindow.ui \
+        mainwindow.ui \
+        medwindow.ui \
+        programswindow.ui \
+        screeningwindow.ui \
+        settingswindow.ui \
+        treatmentwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
