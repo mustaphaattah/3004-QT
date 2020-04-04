@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2020-03-15T14:35:40
+# Project created by QtCreator 2020-04-03T19:54:41
 #
 #-------------------------------------------------
 
@@ -25,41 +25,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        batterywarningdialog.cpp \
-        brightnesswindow.cpp \
-        childrenwindow.cpp \
-        frequencywindow.cpp \
         main.cpp \
-        mainwindow.cpp \
-        medwindow.cpp \
-        programswindow.cpp \
-        screeningwindow.cpp \
-        settingswindow.cpp \
-        treatmentwindow.cpp
+        mainwindow.cpp
 
 HEADERS += \
-        batterywarningdialog.h \
-        brightnesswindow.h \
-        childrenwindow.h \
-        frequencywindow.h \
-        mainwindow.h \
-        medwindow.h \
-        programswindow.h \
-        screeningwindow.h \
-        settingswindow.h \
-        treatmentwindow.h
+        mainwindow.h
 
 FORMS += \
-        batterywarningdialog.ui \
-        brightnesswindow.ui \
-        childrenwindow.ui \
-        frequencywindow.ui \
-        mainwindow.ui \
-        medwindow.ui \
-        programswindow.ui \
-        screeningwindow.ui \
-        settingswindow.ui \
-        treatmentwindow.ui
+        mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -2,13 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-using namespace std;
 
 namespace Ui {
 class MainWindow;
 }
-
-extern int batteryLevel;
 
 class MainWindow : public QMainWindow
 {
@@ -19,43 +16,45 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_upButton_clicked();
-
-    void on_powerButton_clicked();
+    void on_okButton_clicked();
 
     void on_downButton_clicked();
 
-    void on_selectButton_clicked();
+    void on_upButton_clicked();
+
+    void on_leftButton_clicked();
+
+    void on_rightButton_clicked();
+
+    void on_backButton_clicked();
 
     void batteryManager();
 
-private:
-    void changeMenu(QString selectedMenu);
+    void treatmentManager();
 
-public:
-    int getBatteryLevel();
+    void on_menuButton_clicked();
 
-public:
-    void setBatteryLevel(int &batteryLevelRef, int newLevel);
+    void on_powerButton_clicked();
 
-public:
-    void checkBatteryStatus();
-
-public:
-    void drainBattery(int percent);
+    void on_skinElectrode_clicked();
 
 private:
     Ui::MainWindow *ui;
-
-private:
-    QString allOptions [6] = {"PROGRAM","FREQUENCY","MED","SCREENING","CHILDREN","SETTINGS"};
-
-private:
-    int selectionIndex;
-
+    void displayMenu(QString arr[], int size);
+    void hideMenu();
+    void menuOptionHandler(QString selection);
+    void setBatteryLevel(int &batteryLevelRef, int newLevel);
+    void checkBatteryStatus();
+    void drainBattery(int percent);
+    void treatmentHandler(QString treatment);
+    QString menuOptions [6] = {"PROGRAM","FREQUENCY","MED","SCREENING","CHILDREN","SETTINGS"};
+    QString programsOptions[3] = {"PAIN", "HEAD", "COLD"};
+    QString frequencyOptions[9] = {"1.0-9.9 Hz","10 Hz","20 Hz","60 Hz","77 Hz","140 Hz","200 Hz","<<77 10>>","<<77AM>>"};
+    QString settingsOptions[8] = {"SOUND", "BRIGHTNESS", "ECONOMY", "RECORDING", "CLOCK", "ALARM CLOCK", "LANGUAGE", "CONTACT"};
+    QString childrenOptions[5] = {"DISABLE", "UP TO 1 YEAR", "1-3 YEARS", "4-7 YEARES", "7-12 YEARS"};
+    QString soundOptions[3] = {"GENERAL", "SOUND CONT.", "SOUND BUT."};
+    QString onOffOptions[2] = {"OFF", "ON"};
+    QString enableOptions[2] = {"DISABLE", "ENABLE"};
 };
-
-
-
 
 #endif // MAINWINDOW_H
