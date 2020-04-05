@@ -51,7 +51,7 @@ void TreatmentWindow::on_powerButton_clicked()
 
 void TreatmentWindow::on_skinElectrode_clicked()
 {
-    if (TreatmentTimer->isActive()) {
+    if (TreatmentTimer->isActive() == false) {
         TreatmentTimer->stop();
     } else {
         TreatmentTimer->start(1000);

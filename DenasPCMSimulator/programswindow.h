@@ -25,6 +25,8 @@ private slots:
     void on_selectButton_clicked();
 
 
+    void on_pushButton_clicked();
+
 private:
     Ui::ProgramsWindow *ui;
     QString programsOptions[3] = {"PAIN", "HEAD", "COLD"};

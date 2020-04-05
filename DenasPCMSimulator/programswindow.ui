@@ -120,17 +120,17 @@
     <string>← </string>
    </property>
   </widget>
-  <widget class="QRadioButton" name="skinElectrode">
+  <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>290</y>
-     <width>106</width>
-     <height>23</height>
+     <x>150</x>
+     <y>300</y>
+     <width>71</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>Skin On/Off</string>
+    <string>Back</string>
    </property>
   </widget>
  </widget>

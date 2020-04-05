@@ -15,7 +15,6 @@
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QRadioButton>
 
 QT_BEGIN_NAMESPACE
 
@@ -30,7 +29,7 @@ public:
     QPushButton *selectButton;
     QProgressBar *batteryStatus;
     QPushButton *leftButton;
-    QRadioButton *skinElectrode;
+    QPushButton *pushButton;
 
     void setupUi(QDialog *ProgramsWindow)
     {
@@ -64,9 +63,9 @@ public:
         leftButton = new QPushButton(ProgramsWindow);
         leftButton->setObjectName(QString::fromUtf8("leftButton"));
         leftButton->setGeometry(QRect(10, 290, 31, 25));
-        skinElectrode = new QRadioButton(ProgramsWindow);
-        skinElectrode->setObjectName(QString::fromUtf8("skinElectrode"));
-        skinElectrode->setGeometry(QRect(140, 290, 106, 23));
+        pushButton = new QPushButton(ProgramsWindow);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(150, 300, 71, 21));
 
         retranslateUi(ProgramsWindow);
 
@@ -82,7 +81,7 @@ public:
         downButton->setText(QCoreApplication::translate("ProgramsWindow", "\342\206\223", nullptr));
         selectButton->setText(QCoreApplication::translate("ProgramsWindow", "Select", nullptr));
         leftButton->setText(QCoreApplication::translate("ProgramsWindow", "\342\206\220 ", nullptr));
-        skinElectrode->setText(QCoreApplication::translate("ProgramsWindow", "Skin On/Off", nullptr));
+        pushButton->setText(QCoreApplication::translate("ProgramsWindow", "Back", nullptr));
     } // retranslateUi
 
 };

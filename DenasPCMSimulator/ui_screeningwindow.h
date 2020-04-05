@@ -125,6 +125,7 @@ public:
         rightButton->setText(QCoreApplication::translate("ScreeningWindow", "\342\206\222", nullptr));
         skinElectrode->setText(QCoreApplication::translate("ScreeningWindow", "Skin On/Off", nullptr));
         screeningTimerLabel->setText(QCoreApplication::translate("ScreeningWindow", "Screening timer (only works on skin)", nullptr));
+        screeningTimer->setDisplayFormat(QCoreApplication::translate("ScreeningWindow", "hh:mm:ss", nullptr));
     } // retranslateUi
 
 };

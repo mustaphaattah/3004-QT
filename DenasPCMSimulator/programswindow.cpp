@@ -104,3 +104,8 @@ void ProgramsWindow::on_selectButton_clicked()
     QString selection = ui->programsMenu->currentItem()->text();
     menuOptionHandler(selection);
 }
+
+void ProgramsWindow::on_pushButton_clicked()
+{
+    this->close();
+}

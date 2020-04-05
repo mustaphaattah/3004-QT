@@ -24,6 +24,8 @@ private slots:
 
     void on_selectButton_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::FrequencyWindow *ui;
     QString frequencyOptions[9] = {"1.0-9.9 Hz","10 Hz","20 Hz","60 Hz","77 Hz","140 Hz","200 Hz","<<77 10>>","<<77AM>>"};

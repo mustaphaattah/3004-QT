@@ -1,6 +1,7 @@
 #include "medwindow.h"
 #include "ui_medwindow.h"
 #include "mainwindow.h"
+#include <iostream>
 
 #include <QTimer>
 
@@ -56,7 +57,7 @@ void MedWindow::on_skinElectrode_clicked()
 }
 
 void MedWindow::updateMedTimer() {
-    medTreatmentTime = medTreatmentTime.addSecs(60);
+    medTreatmentTime = medTreatmentTime.addSecs(1);
     ui->medTimer->setTime(medTreatmentTime);
 
 }

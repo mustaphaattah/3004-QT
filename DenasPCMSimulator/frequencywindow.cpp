@@ -67,3 +67,8 @@ void FrequencyWindow::on_selectButton_clicked()
     treatWindow.exec();
     show();
 }
+
+void FrequencyWindow::on_pushButton_clicked()
+{
+    this->close();
+}

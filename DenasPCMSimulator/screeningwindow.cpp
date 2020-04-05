@@ -50,7 +50,7 @@ void ScreeningWindow::on_skinElectrode_clicked()
 }
 
 void ScreeningWindow::updateScreenTimer(){
-    screenTreatmentTime = screenTreatmentTime.addSecs(60);
+    screenTreatmentTime = screenTreatmentTime.addSecs(1);
 
     if (counter == 5) {
         ui->measuredValue->setText(QString::number(qrand() % ((100 + 1) - 0) + 0));

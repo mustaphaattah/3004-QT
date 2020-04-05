@@ -15,7 +15,6 @@
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QProgressBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QRadioButton>
 
 QT_BEGIN_NAMESPACE
 
@@ -23,7 +22,6 @@ class Ui_FrequencyWindow
 {
 public:
     QPushButton *leftButton;
-    QRadioButton *skinElectrode;
     QPushButton *selectButton;
     QPushButton *upButton;
     QPushButton *rightButton;
@@ -31,6 +29,7 @@ public:
     QPushButton *downButton;
     QProgressBar *batteryStatus;
     QPushButton *powerButton;
+    QPushButton *pushButton;
 
     void setupUi(QDialog *FrequencyWindow)
     {
@@ -40,9 +39,6 @@ public:
         leftButton = new QPushButton(FrequencyWindow);
         leftButton->setObjectName(QString::fromUtf8("leftButton"));
         leftButton->setGeometry(QRect(10, 290, 31, 25));
-        skinElectrode = new QRadioButton(FrequencyWindow);
-        skinElectrode->setObjectName(QString::fromUtf8("skinElectrode"));
-        skinElectrode->setGeometry(QRect(140, 290, 106, 23));
         selectButton = new QPushButton(FrequencyWindow);
         selectButton->setObjectName(QString::fromUtf8("selectButton"));
         selectButton->setGeometry(QRect(110, 330, 71, 21));
@@ -67,6 +63,9 @@ public:
         powerButton = new QPushButton(FrequencyWindow);
         powerButton->setObjectName(QString::fromUtf8("powerButton"));
         powerButton->setGeometry(QRect(190, 330, 61, 21));
+        pushButton = new QPushButton(FrequencyWindow);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(150, 294, 61, 21));
 
         retranslateUi(FrequencyWindow);
 
@@ -77,12 +76,12 @@ public:
     {
         FrequencyWindow->setWindowTitle(QCoreApplication::translate("FrequencyWindow", "Dialog", nullptr));
         leftButton->setText(QCoreApplication::translate("FrequencyWindow", "\342\206\220 ", nullptr));
-        skinElectrode->setText(QCoreApplication::translate("FrequencyWindow", "Skin On/Off", nullptr));
         selectButton->setText(QCoreApplication::translate("FrequencyWindow", "Select", nullptr));
         upButton->setText(QCoreApplication::translate("FrequencyWindow", "\342\206\221", nullptr));
         rightButton->setText(QCoreApplication::translate("FrequencyWindow", "\342\206\222", nullptr));
         downButton->setText(QCoreApplication::translate("FrequencyWindow", "\342\206\223", nullptr));
         powerButton->setText(QCoreApplication::translate("FrequencyWindow", "Power", nullptr));
+        pushButton->setText(QCoreApplication::translate("FrequencyWindow", "Back", nullptr));
     } // retranslateUi
 
 };
