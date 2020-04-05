@@ -35,7 +35,8 @@ SOURCES += \
         medwindow.cpp \
         programswindow.cpp \
         screeningwindow.cpp \
-        settingswindow.cpp
+        settingswindow.cpp \
+        treatmentwindow.cpp
 
 HEADERS += \
         batterywarningdialog.h \
@@ -47,7 +48,8 @@ HEADERS += \
         medwindow.h \
         programswindow.h \
         screeningwindow.h \
-        settingswindow.h
+        settingswindow.h \
+        treatmentwindow.h
 
 FORMS += \
         batterywarningdialog.ui \
@@ -59,7 +61,8 @@ FORMS += \
         medwindow.ui \
         programswindow.ui \
         screeningwindow.ui \
-        settingswindow.ui
+        settingswindow.ui \
+        treatmentwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
