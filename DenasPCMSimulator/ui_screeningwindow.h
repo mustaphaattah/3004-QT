@@ -38,6 +38,7 @@ public:
     QListWidget *mainMenuOptions;
     QLabel *screeningTimerLabel;
     QTimeEdit *screeningTimer;
+    QTimeEdit *currentTime;
 
     void setupUi(QDialog *ScreeningWindow)
     {
@@ -85,10 +86,17 @@ public:
         screeningTimerLabel->setGeometry(QRect(10, 200, 251, 20));
         screeningTimer = new QTimeEdit(ScreeningWindow);
         screeningTimer->setObjectName(QString::fromUtf8("screeningTimer"));
+        screeningTimer->setEnabled(true);
         screeningTimer->setGeometry(QRect(60, 220, 118, 26));
-        screeningTimer->setFrame(true);
+        screeningTimer->setFrame(false);
+        screeningTimer->setAlignment(Qt::AlignCenter);
+        screeningTimer->setReadOnly(true);
         screeningTimer->setKeyboardTracking(true);
         screeningTimer->setTime(QTime(1, 0, 0));
+        currentTime = new QTimeEdit(ScreeningWindow);
+        currentTime->setObjectName(QString::fromUtf8("currentTime"));
+        currentTime->setGeometry(QRect(10, 5, 118, 21));
+        currentTime->setReadOnly(true);
         downButton->raise();
         selectButton->raise();
         leftButton->raise();
@@ -102,6 +110,7 @@ public:
         screeningTimer->raise();
         measuredValueLabel->raise();
         measuredValue->raise();
+        currentTime->raise();
 
         retranslateUi(ScreeningWindow);
 
@@ -125,7 +134,8 @@ public:
         rightButton->setText(QCoreApplication::translate("ScreeningWindow", "\342\206\222", nullptr));
         skinElectrode->setText(QCoreApplication::translate("ScreeningWindow", "Skin On/Off", nullptr));
         screeningTimerLabel->setText(QCoreApplication::translate("ScreeningWindow", "Screening timer (only works on skin)", nullptr));
-        screeningTimer->setDisplayFormat(QCoreApplication::translate("ScreeningWindow", "hh:mm:ss", nullptr));
+        screeningTimer->setDisplayFormat(QCoreApplication::translate("ScreeningWindow", "mm:ss", nullptr));
+        currentTime->setDisplayFormat(QCoreApplication::translate("ScreeningWindow", "h:mm:ss AP", nullptr));
     } // retranslateUi
 
 };

@@ -26,6 +26,8 @@ private slots:
 
     void on_selectButton_clicked();
 
+    void scrUpdateClock();
+
 private:
     Ui::ScreeningWindow *ui;
 };

@@ -168,14 +168,23 @@
      <height>26</height>
     </rect>
    </property>
+   <property name="wrapping">
+    <bool>false</bool>
+   </property>
    <property name="frame">
+    <bool>false</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="readOnly">
     <bool>true</bool>
    </property>
    <property name="keyboardTracking">
     <bool>true</bool>
    </property>
    <property name="displayFormat">
-    <string>hh:mm:ss</string>
+    <string>mm:ss</string>
    </property>
    <property name="time">
     <time>
@@ -200,6 +209,19 @@
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QTimeEdit" name="currentTime">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>5</y>
+     <width>118</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="displayFormat">
+    <string>h:mm:ss AP</string>
    </property>
   </widget>
  </widget>

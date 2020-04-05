@@ -7,17 +7,23 @@
 
 QTimer *medBatteryUpdateTimer = new QTimer();
 QTimer *medModeTimer = new QTimer();
+QTimer *medClockTimer = new QTimer();
 
 int intensity;
 
-QTime medTreatmentTime;
+QTime medTreatmentTime (0,10,0);
+QTime medCurrentTimeNow;
+
 MedWindow::MedWindow(QDialog *parent) :
     QDialog(parent),
     ui(new Ui::MedWindow)
 {
 
-    medTreatmentTime = QTime().currentTime();
+    medCurrentTimeNow = QTime().currentTime();
     ui->setupUi(this);
+    connect(medClockTimer,SIGNAL(timeout()),this,SLOT(medUpdateClock()));
+    medClockTimer->start(1000);
+    ui->currentTime->setTime(medCurrentTimeNow);
     ui->batteryStatus->setValue(batteryLevel);
     ui->upButton->setEnabled(false);
     ui->downButton->setEnabled(false);
@@ -57,7 +63,7 @@ void MedWindow::on_skinElectrode_clicked()
 }
 
 void MedWindow::updateMedTimer() {
-    medTreatmentTime = medTreatmentTime.addSecs(1);
+    medTreatmentTime = medTreatmentTime.addSecs(-1);
     ui->medTimer->setTime(medTreatmentTime);
 
 }
@@ -88,5 +94,12 @@ void MedWindow::on_leftButton_clicked()
 
 void MedWindow::on_selectButton_clicked()
 {
+    medModeTimer->stop();
     this->close();
+}
+
+void MedWindow::medUpdateClock()
+{
+    medCurrentTimeNow = medCurrentTimeNow.addSecs(1);
+    ui->currentTime->setTime(medCurrentTimeNow);
 }

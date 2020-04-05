@@ -3,25 +3,32 @@
 #include "mainwindow.h"
 
 #include <QTimer>
+#include <QTime>
 #include <iostream>
 QTimer *TreatmentBatteryUpdateTimer = new QTimer();
 QTimer *TreatmentModeTimer = new QTimer();
 QTimer *TreatmentTimer = new QTimer;
+QTimer *clockTimer = new QTimer();
 
 int buttonTime,secTreatment,minTreatment,treatmentIntensity;
 
+QTime currentTimeNow;
 TreatmentWindow::TreatmentWindow(QDialog *parent) :
     QDialog(parent),
     ui(new Ui::TreatmentWindow)
 {
+    currentTimeNow = QTime().currentTime();
     buttonTime = 0;
     secTreatment = 0;
     minTreatment = 10;
     treatmentIntensity = 0;
     connect(TreatmentTimer,SIGNAL(timeout()),this,SLOT(treatmentManager()));
-    TreatmentTimer->start(1000);
+    connect(clockTimer,SIGNAL(timeout()),this,SLOT(updateClock()));
+    clockTimer->start(1000);
+
     ui->setupUi(this);
     ui->batteryStatus->setValue(batteryLevel);
+    ui->currentTime->setTime(currentTimeNow);
     ui->upButton->setEnabled(false);
     ui->downButton->setEnabled(false);
     ui->skinElectrode->setChecked(false);
@@ -51,7 +58,7 @@ void TreatmentWindow::on_powerButton_clicked()
 
 void TreatmentWindow::on_skinElectrode_clicked()
 {
-    if (TreatmentTimer->isActive() == false) {
+    if (TreatmentTimer->isActive()) {
         TreatmentTimer->stop();
     } else {
         TreatmentTimer->start(1000);
@@ -83,6 +90,7 @@ void TreatmentWindow::on_leftButton_clicked()
 
 void TreatmentWindow::on_selectButton_clicked()
 {
+    TreatmentTimer->stop();
     this->close();
 }
 
@@ -106,4 +114,11 @@ void TreatmentWindow::treatmentManager()
         minTreatment -= 1;
         secTreatment = 59;
     }
+}
+
+void TreatmentWindow::updateClock()
+{
+    currentTimeNow = currentTimeNow.addSecs(1);
+    ui->currentTime->setTime(currentTimeNow);
+
 }

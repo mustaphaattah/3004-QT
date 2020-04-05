@@ -30,6 +30,8 @@ private slots:
 
     void on_selectButton_clicked();
 
+    void medUpdateClock();
+
 private:
     Ui::MedWindow *ui;
 };

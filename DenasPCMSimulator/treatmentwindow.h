@@ -30,6 +30,8 @@ private slots:
 
     void treatmentManager();
 
+    void updateClock();
+
 private:
     Ui::TreatmentWindow *ui;
 

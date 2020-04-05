@@ -202,6 +202,22 @@ p, li { white-space: pre-wrap; }
     <string>:</string>
    </property>
   </widget>
+  <widget class="QTimeEdit" name="currentTime">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>5</y>
+     <width>111</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+   <property name="displayFormat">
+    <string>h:mm:ss AP</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

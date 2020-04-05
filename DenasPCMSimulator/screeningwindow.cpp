@@ -6,8 +6,10 @@
 
 QTimer *screeningBatteryUpdateTimer = new QTimer();
 QTimer *screenModeTimer = new QTimer();
+QTimer *scrClockTimer = new QTimer();
 
-QTime screenTreatmentTime;
+QTime screenTreatmentTime (0,10,0);
+QTime scrCurrentTimeNow;
 
 int counter;
 ScreeningWindow::ScreeningWindow(QWidget *parent) :
@@ -15,8 +17,10 @@ ScreeningWindow::ScreeningWindow(QWidget *parent) :
     ui(new Ui::ScreeningWindow)
 {
     ui->setupUi(this);
+    connect(scrClockTimer,SIGNAL(timeout()),this,SLOT(scrUpdateClock()));
+    scrClockTimer->start(1000);
+    scrCurrentTimeNow = QTime().currentTime();
     this->setWindowTitle("SCREENING MODE");
-    screenTreatmentTime = QTime().currentTime();
     ui->batteryStatus->setValue(batteryLevel);
     ui->screeningTimer->setTime(screenTreatmentTime);
     connect(screeningBatteryUpdateTimer,SIGNAL(timeout()),this,SLOT(fetchBatteryLife()));
@@ -69,5 +73,13 @@ void ScreeningWindow::on_powerButton_clicked()
 
 void ScreeningWindow::on_selectButton_clicked()
 {
+    screenModeTimer->stop();
     this->close();
+}
+
+void ScreeningWindow::scrUpdateClock()
+{
+    scrCurrentTimeNow = scrCurrentTimeNow.addSecs(1);
+    ui->currentTime->setTime(scrCurrentTimeNow);
+
 }

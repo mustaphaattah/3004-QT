@@ -38,6 +38,7 @@ public:
     QLabel *medTimerLabel;
     QTimeEdit *medTimer;
     QTextEdit *intensityIndicator;
+    QTimeEdit *currentTime;
 
     void setupUi(QDialog *MedWindow)
     {
@@ -83,12 +84,18 @@ public:
         medTimer = new QTimeEdit(MedWindow);
         medTimer->setObjectName(QString::fromUtf8("medTimer"));
         medTimer->setGeometry(QRect(60, 220, 118, 26));
-        medTimer->setFrame(true);
+        medTimer->setWrapping(false);
+        medTimer->setFrame(false);
+        medTimer->setAlignment(Qt::AlignCenter);
+        medTimer->setReadOnly(true);
         medTimer->setKeyboardTracking(true);
         medTimer->setTime(QTime(1, 0, 0));
         intensityIndicator = new QTextEdit(MedWindow);
         intensityIndicator->setObjectName(QString::fromUtf8("intensityIndicator"));
         intensityIndicator->setGeometry(QRect(100, 120, 41, 31));
+        currentTime = new QTimeEdit(MedWindow);
+        currentTime->setObjectName(QString::fromUtf8("currentTime"));
+        currentTime->setGeometry(QRect(20, 5, 118, 21));
 
         retranslateUi(MedWindow);
 
@@ -107,12 +114,13 @@ public:
         skinElectrode->setText(QCoreApplication::translate("MedWindow", "Skin On/Off", nullptr));
         intensityLevelLabel->setText(QCoreApplication::translate("MedWindow", "Intensity Level", nullptr));
         medTimerLabel->setText(QCoreApplication::translate("MedWindow", "MED timer (only operates on skin)", nullptr));
-        medTimer->setDisplayFormat(QCoreApplication::translate("MedWindow", "hh:mm:ss", nullptr));
+        medTimer->setDisplayFormat(QCoreApplication::translate("MedWindow", "mm:ss", nullptr));
         intensityIndicator->setHtml(QCoreApplication::translate("MedWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Sans'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
+        currentTime->setDisplayFormat(QCoreApplication::translate("MedWindow", "h:mm:ss AP", nullptr));
     } // retranslateUi
 
 };

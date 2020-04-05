@@ -18,6 +18,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QRadioButton>
 #include <QtWidgets/QTextEdit>
+#include <QtWidgets/QTimeEdit>
 
 QT_BEGIN_NAMESPACE
 
@@ -38,6 +39,7 @@ public:
     QLabel *TreatmentMin;
     QLabel *TreatmentSec;
     QLabel *Colon;
+    QTimeEdit *currentTime;
 
     void setupUi(QDialog *TreatmentWindow)
     {
@@ -89,6 +91,10 @@ public:
         Colon = new QLabel(TreatmentWindow);
         Colon->setObjectName(QString::fromUtf8("Colon"));
         Colon->setGeometry(QRect(110, 180, 16, 17));
+        currentTime = new QTimeEdit(TreatmentWindow);
+        currentTime->setObjectName(QString::fromUtf8("currentTime"));
+        currentTime->setGeometry(QRect(10, 5, 111, 21));
+        currentTime->setReadOnly(true);
 
         retranslateUi(TreatmentWindow);
 
@@ -114,6 +120,7 @@ public:
         TreatmentMin->setText(QCoreApplication::translate("TreatmentWindow", "10", nullptr));
         TreatmentSec->setText(QCoreApplication::translate("TreatmentWindow", "00", nullptr));
         Colon->setText(QCoreApplication::translate("TreatmentWindow", ":", nullptr));
+        currentTime->setDisplayFormat(QCoreApplication::translate("TreatmentWindow", "h:mm:ss AP", nullptr));
     } // retranslateUi
 
 };

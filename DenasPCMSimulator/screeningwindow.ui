@@ -177,6 +177,9 @@ p, li { white-space: pre-wrap; }
    </property>
   </widget>
   <widget class="QTimeEdit" name="screeningTimer">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>60</x>
@@ -186,13 +189,19 @@ p, li { white-space: pre-wrap; }
     </rect>
    </property>
    <property name="frame">
+    <bool>false</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="readOnly">
     <bool>true</bool>
    </property>
    <property name="keyboardTracking">
     <bool>true</bool>
    </property>
    <property name="displayFormat">
-    <string>hh:mm:ss</string>
+    <string>mm:ss</string>
    </property>
    <property name="time">
     <time>
@@ -200,6 +209,22 @@ p, li { white-space: pre-wrap; }
      <minute>0</minute>
      <second>0</second>
     </time>
+   </property>
+  </widget>
+  <widget class="QTimeEdit" name="currentTime">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>5</y>
+     <width>118</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+   <property name="displayFormat">
+    <string>h:mm:ss AP</string>
    </property>
   </widget>
   <zorder>downButton</zorder>
@@ -215,6 +240,7 @@ p, li { white-space: pre-wrap; }
   <zorder>screeningTimer</zorder>
   <zorder>measuredValueLabel</zorder>
   <zorder>measuredValue</zorder>
+  <zorder>currentTime</zorder>
  </widget>
  <resources/>
  <connections/>
